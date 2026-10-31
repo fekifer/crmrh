@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <title> @yield('title') | Hybrix - Laravel 12 Admin & Dashboard Template</title>
+    <title> @yield('title') | Bienvenido a CRMRH</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Hybrix Laravel Admin & Dashboard Template" name="description" />
+    <meta content="Bienvenido a CRMRH" name="description" />
     <meta content="Themesbrand" name="author" />
-     <meta name="keywords" content="hybrix,hybrix laravel,admin,dashboard,vite,livewire,livewire admin,laravel vite">
+    <meta name="keywords" content="hybrix,hybrix laravel,admin,dashboard,vite,livewire,livewire admin,laravel vite">
      
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ URL::asset('build/images/favicon.ico') }}">

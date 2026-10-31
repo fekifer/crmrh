@@ -41,7 +41,7 @@
                                 <div class="card mb-0 border-0 shadow-none">
                                     <div class="card-body px-0 p-sm-5 m-lg-4">
                                         <div class="text-center mt-2">
-                                            <h5 class="text-primary fs-20">Welcome Back !</h5>
+                                            <h5 class="text-primary fs-20">Bienvenido Nuevamente !</h5>
                                             <p class="text-muted">Sign in to continue to Hybrix.</p>
                                         </div>
                                         <div class="p-2 mt-5">
