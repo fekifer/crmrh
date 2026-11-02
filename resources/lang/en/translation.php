@@ -1,7 +1,8 @@
 <?php
 return [
     "menu"=>"Menu",
-    "dashboards"=>"Dashboard",
+    "dashboards"=>"Inicio",
+    "inicio"  =>"Inicio",
     "analytics"=>"Analytics",
     "crm"=>"CRM",
     "ecommerce"=>"Ecommerce",

@@ -1,1372 +1,1758 @@
 @extends('layouts.master')
 @section('title')
-@lang('translation.dashboards')
+@lang('translation.profile')
 @endsection
 @section('css')
-<link href="{{ URL::asset('build/libs/jsvectormap/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ URL::asset('build/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
 
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card overflow-hidden">
+            <div class="rounded profile-basic position-relative" style="background-image: url('build/images/profile-bg.jpg');background-size: cover;background-position: center;">
+                <div class="bg-overlay bg-primary"></div>
+            </div>
+            <div class="card-body">
+                <div class="position-relative">
+                    <div class="mt-n5">
+                        <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-lg rounded-circle p-1 mt-n4">
+                    </div>
+                </div>
+                <div class="pt-3">
+                    <div class="row justify-content-between gy-4">
+                        <div class="col-xl-5 col-lg-5">
+                            <h5 class="fs-17">Edward Diana</h5>
+                            <div class="hstack gap-1 mb-3 text-muted">
+                                <div class="me-2"><i class="ri-map-pin-user-line me-1 fs-16 align-middle"></i>Phoenix, USA</div>
+                                <div>
+                                    <i class="ri-building-line me-1 fs-16 align-middle"></i>Themesbrand
+                                </div>
+                            </div>
+                            <p>Product visual designer, expert in UI design</p>
+
+                            <div class="hstack gap-2">
+                                <button type="button" class="btn btn-success custom-toggle" data-bs-toggle="button" aria-pressed="false">
+                                    <span class="icon-on"><i class="ri-user-add-line align-bottom me-1"></i> Connect</span>
+                                    <span class="icon-off"><i class="ri-check-fill align-bottom me-1"></i> Unconnect</span>
+                                </button>
+                                <button type="button" class="btn btn-soft-secondary btn-icon"><i class="bi bi-chat-left-text"></i></button>
+                                <div class="dropdown">
+                                    <button class="btn btn-soft-danger btn-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-5">
+                            <div>
+                                <p class="text-muted fw-medium mb-2">Language Knows</p>
+                                <ul class="list-inline mb-4">
+                                    <li class="list-inline-item">
+                                        <span class="badge text-info bg-info-subtle">English</span>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <span class="badge text-info bg-info-subtle">Russian</span>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <span class="badge text-info bg-info-subtle">Chinese</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="text-muted fw-medium mb-2">Featured Skills</p>
+                                <ul class="d-flex gap-2 flex-wrap list-unstyled mb-0">
+                                    <li>
+                                        <span class="badge text-body-emphasis  bg-dark-subtle">Business Marketing</span>
+                                    </li>
+                                    <li>
+                                        <span class="badge text-body-emphasis  bg-dark-subtle">Google Ads Management</span>
+                                    </li>
+                                    <li>
+                                        <span class="badge text-body-emphasis  bg-dark-subtle">Social Ads Management</span>
+                                    </li>
+                                    <li>
+                                        <span class="badge text-body-emphasis  bg-dark-subtle">Content SEO</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2 mt-lg-4 gy-3">
+                    <div class="col-lg order-1">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills animation-nav gap-2 gap-lg-3 flex-grow-1" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link fs-14 active" data-bs-toggle="tab" href="#overview-tab" role="tab">
+                                    <i class="ri-airplay-fill d-inline-block d-md-none"></i> <span class="d-none d-md-inline-block">Overview</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-14" data-bs-toggle="tab" href="#activities" role="tab">
+                                    <i class="ri-list-unordered d-inline-block d-md-none"></i> <span class="d-none d-md-inline-block">Activities</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-14" data-bs-toggle="tab" href="#projects" role="tab">
+                                    <i class="ri-price-tag-line d-inline-block d-md-none"></i> <span class="d-none d-md-inline-block">Projects</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-14" data-bs-toggle="tab" href="#friends" role="tab">
+                                    <i class="ri-folder-4-line d-inline-block d-md-none"></i> <span class="d-none d-md-inline-block">Friends</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-14" data-bs-toggle="tab" href="#documents" role="tab">
+                                    <i class="ri-folder-4-line d-inline-block d-md-none"></i> <span class="d-none d-md-inline-block">Documents</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-auto order-lg-2">
+                        <a href="pages-profile-settings" class="btn btn-secondary"><i class="ri-edit-box-line align-bottom"></i> Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end card-->
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
 
 <div class="row">
-    <div class="col">
-        <div class="h-100">
-            <div class="row">
-                <div class="col-xl-4">
-                    <div class="row">
-                        <div class="col-xl-12 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
+    <div class="col-lg-12">
+        <!-- Tab panes -->
+        <div class="tab-content text-muted">
+            <div class="tab-pane active" id="overview-tab" role="tabpanel">
+                <div class="row">
+                    <div class="col-xxl-3">
+
+                        <div class="card">
+                            <div class="card-body p-2">
+                                <div class="card-body bg-primary rounded-3 pb-3">
+                                    <div class="mb-4 pb-1">
+                                        <h6 class="fs-16 text-white">Renew Premium License</h6>
+                                        <p class="text-white-75 mb-0">If you purchased an Annual plan and if you've not canceled the automatic renewal, our license management system automatically</p>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-4">
+                                    <div class="mt-n5 p-3 rounded shadow card border-0 mb-0">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <h4 class="mb-0">$351</h4>
+                                            <div>
+                                                <span class="badge text-success  bg-success-subtle">25% Discount</span>
+                                                <p class="text-muted mb-0 mt-2">Exclusively for our Premium members</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 hstack gap-2">
+                                        <button class="btn btn-soft-secondary w-100">Renew Plan</button>
+                                        <button class="btn btn-soft-danger w-100">View All Plan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-5">Complete Your Profile</h5>
+                                <div class="progress animated-progress custom-progress progress-label">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 67%;" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100">
+                                        <div class="label">67%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">Portfolio</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <div>
+                                        <a href="javascript:void(0);" class="avatar-xs d-block">
+                                            <span class="avatar-title rounded-circle fs-16 bg-dark text-white">
+                                                <i class="ri-github-fill"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0);" class="avatar-xs d-block">
+                                            <span class="avatar-title rounded-circle fs-16 bg-primary">
+                                                <i class="ri-global-fill"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0);" class="avatar-xs d-block">
+                                            <span class="avatar-title rounded-circle fs-16 bg-success">
+                                                <i class="ri-dribbble-fill"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0);" class="avatar-xs d-block">
+                                            <span class="avatar-title rounded-circle fs-16 bg-danger">
+                                                <i class="ri-pinterest-fill"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">Skills</h5>
+                                <div class="d-flex flex-wrap gap-2 fs-15">
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">Photoshop</a>
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">illustrator</a>
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">HTML</a>
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">CSS</a>
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">Javascript</a>
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">Php</a>
+                                    <a href="javascript:void(0);" class="badge text-primary  bg-primary-subtle">Python</a>
+                                </div>
+                            </div><!-- end card body -->
+                        </div><!-- end card -->
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-4">
+                                    <div class="flex-grow-1">
+                                        <h5 class="card-title mb-0">Suggestions</h5>
+                                    </div>
+                                    <div class="flex-shrink-0">
+                                        <div class="dropdown">
+                                            <a href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="ri-more-2-fill fs-14"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
+                                                <li><a class="dropdown-item" href="#">View</a></li>
+                                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                <li><a class="dropdown-item" href="#">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex align-items-center py-3">
+                                        <div class="avatar-xs flex-shrink-0 me-3">
+                                            <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                        </div>
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate fs-13">Total Earnings</p>
-                                            <h4 class="fs-22 fw-semibold mb-3">$<span class="counter-value" data-target="745.35">0</span></h4>
-                                            <div class="d-flex align-items-center gap-2">
-                                                <h5 class="text-success fs-12 mb-0">
-                                                    <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +18.30 %
-                                                </h5>
-                                                <p class="text-muted mb-0">than last week</p>
+                                            <div>
+                                                <h5 class="fs-14 mb-1">Esther James</h5>
+                                                <p class="fs-13 text-muted mb-0">Frontend Developer</p>
                                             </div>
                                         </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-success-subtle rounded fs-3">
-                                                <i class="bx bx-dollar-circle text-success"></i>
-                                            </span>
+                                        <div class="flex-shrink-0 ms-2">
+                                            <button type="button" class="btn btn-sm btn-outline-success"><i class="ri-user-add-line align-middle"></i></button>
                                         </div>
                                     </div>
-                                </div><!-- end card body -->
-                                <div class="animation-effect-6 text-success opacity-25 fs-18">
-                                    <i class="bi bi-currency-dollar"></i>
-                                </div>
-                                <div class="animation-effect-4 text-success opacity-25 fs-18">
-                                    <i class="bi bi-currency-pound"></i>
-                                </div>
-                                <div class="animation-effect-3 text-success opacity-25 fs-18">
-                                    <i class="bi bi-currency-euro"></i>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-xl-12 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-info-subtle rounded fs-3">
-                                                <i class="bx bx-shopping-bag text-info"></i>
-                                            </span>
+                                    <div class="d-flex align-items-center py-3">
+                                        <div class="avatar-xs flex-shrink-0 me-3">
+                                            <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" alt="" class="img-fluid rounded-circle" />
                                         </div>
-                                        <div class="text-end flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate fs-13">Orders</p>
-                                            <h4 class="fs-22 fw-semibold mb-3"><span class="counter-value" data-target="698.36">0</span>k </h4>
-                                            <div class="d-flex align-items-center justify-content-end gap-2">
-                                                <h5 class="text-danger fs-12 mb-0">
-                                                    <i class="ri-arrow-right-down-line fs-13 align-middle"></i> -2.74 %
-                                                </h5>
-                                                <p class="text-muted mb-0">than last week</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                                <div class="animation-effect-6 text-info opacity-25 left fs-18">
-                                    <i class="bi bi-handbag"></i>
-                                </div>
-                                <div class="animation-effect-4 text-info opacity-25 left fs-18">
-                                    <i class="bi bi-shop"></i>
-                                </div>
-                                <div class="animation-effect-3 text-info opacity-25 left fs-18">
-                                    <i class="bi bi-bag-check"></i>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-
-                        <div class="col-xl-12 col-md-6">
-                            <!-- card -->
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
                                         <div class="flex-grow-1">
-                                            <p class="text-uppercase fw-medium text-muted text-truncate fs-13">Customers</p>
-                                            <h4 class="fs-22 fw-semibold mb-3"><span class="counter-value" data-target="183.35">0</span>M </h4>
-                                            <div class="d-flex align-items-center gap-2">
-                                                <h5 class="text-success fs-12 mb-0">
-                                                    <i class="ri-arrow-right-up-line fs-13 align-middle"></i> +29.08 %
-                                                </h5>
-                                                <p class="text-muted mb-0">than last week</p>
+                                            <div>
+                                                <h5 class="fs-14 mb-1">Jacqueline Steve</h5>
+                                                <p class="fs-13 text-muted mb-0">UI/UX Designer</p>
                                             </div>
                                         </div>
-                                        <div class="avatar-sm flex-shrink-0">
-                                            <span class="avatar-title bg-warning-subtle rounded fs-3">
-                                                <i class="bx bx-user-circle text-warning"></i>
-                                            </span>
+                                        <div class="flex-shrink-0 ms-2">
+                                            <button type="button" class="btn btn-sm btn-outline-success"><i class="ri-user-add-line align-middle"></i></button>
                                         </div>
                                     </div>
-                                </div><!-- end card body -->
-                                <div class="animation-effect-6 text-warning opacity-25 fs-18">
-                                    <i class="bi bi-person"></i>
+                                    <div class="d-flex align-items-center py-3">
+                                        <div class="avatar-xs flex-shrink-0 me-3">
+                                            <img src="{{ URL::asset('build/images/users/avatar-5.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <div>
+                                                <h5 class="fs-14 mb-1">George Whalen</h5>
+                                                <p class="fs-13 text-muted mb-0">Backend Developer</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex-shrink-0 ms-2">
+                                            <button type="button" class="btn btn-sm btn-outline-success"><i class="ri-user-add-line align-middle"></i></button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="animation-effect-4 text-warning opacity-25 fs-18">
-                                    <i class="bi bi-person-fill"></i>
+                            </div><!-- end card body -->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                    <div class="col-xxl-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">About</h5>
+                                <p>Hi I'm Anna Adame, It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is European languages are members of the same family.</p>
+                                <p>A lead designer is responsible for addressing the clients' needs of digital content and coordinating with the design team for the planning and innovation of the visual design and concept. Experiment and play around with the fonts that you already have in the software you’re working with reputable font websites. This may be the most commonly encountered tip I received from the designers I spoke with. They highly encourage that you use different fonts in one design, but do not over-exaggerate and go overboard.</p>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0 avatar-sm align-self-center me-3">
+                                                <div class="avatar-title border border-dashed rounded-circle fs-16 text-primary bg-transparent">
+                                                    <i class="bi bi-person-bounding-box"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-1">Designation :</p>
+                                                <h6 class="text-truncate mb-0">Lead Designer / Developer</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-md-4">
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0 avatar-sm align-self-center me-3">
+                                                <div class="avatar-title border border-dashed rounded-circle fs-16 text-primary bg-transparent">
+                                                    <i class="bi bi-globe"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-1">Website :</p>
+                                                <a href="#" class="fw-semibold text-body">www.hybrix.com</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-md-4">
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0 avatar-sm align-self-center me-3">
+                                                <div class="avatar-title border border-dashed rounded-circle fs-16 text-primary bg-transparent">
+                                                    <i class="bi bi-telephone"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-2">Mobile :</p>
+                                                <h6 class="text-truncate mb-0">+(241) 12345 67890</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-md-4">
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0 avatar-sm align-self-center me-3">
+                                                <div class="avatar-title border border-dashed rounded-circle fs-16 text-primary bg-transparent">
+                                                    <i class="bi bi-envelope"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-2">E-mail :</p>
+                                                <h6 class="text-truncate mb-0">edward@hybrix.com</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-md-4">
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0 avatar-sm align-self-center me-3">
+                                                <div class="avatar-title border border-dashed rounded-circle fs-16 text-primary bg-transparent">
+                                                    <i class="bi bi-geo-alt"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-2">Location :</p>
+                                                <h6 class="text-truncate mb-0">Phoenix, USA</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
+                                    <div class="col-md-4">
+                                        <div class="d-flex mt-4">
+                                            <div class="flex-shrink-0 avatar-sm align-self-center me-3">
+                                                <div class="avatar-title border border-dashed rounded-circle fs-16 text-primary bg-transparent">
+                                                    <i class="bi bi-calendar-check"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <p class="mb-2">Joining Date :</p>
+                                                <h6 class="text-truncate mb-0">16 Aug 2023</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end col-->
                                 </div>
-                                <div class="animation-effect-3 text-warning opacity-25 fs-18">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                            </div><!-- end card -->
-                        </div><!-- end col -->
-                    </div> <!-- end row-->
-                </div>
-                <div class="col-xl-8">
-                    <div class="card">
-                        <div class="card-header border-0 align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Revenue</h4>
-                            <div>
-                                <button type="button" class="btn btn-soft-secondary btn-sm">
-                                    ALL
-                                </button>
-                                <button type="button" class="btn btn-soft-secondary btn-sm">
-                                    1M
-                                </button>
-                                <button type="button" class="btn btn-soft-secondary btn-sm">
-                                    6M
-                                </button>
-                                <button type="button" class="btn btn-secondary btn-sm">
-                                    1Y
-                                </button>
+                                <!--end row-->
                             </div>
-                        </div><!-- end card header -->
+                            <!--end card-body-->
+                        </div><!-- end card -->
 
-                        <div class="card-header p-0 border-0 bg-light-subtle">
-                            <div class="row g-0 text-center">
-                                <div class="col-6 col-sm-3">
-                                    <div class="p-3 border border-dashed border-start-0">
-                                        <h5 class="mb-1"><span class="counter-value" data-target="7585">0</span></h5>
-                                        <p class="text-muted mb-0">Orders</p>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-6 col-sm-3">
-                                    <div class="p-3 border border-dashed border-start-0">
-                                        <h5 class="mb-1">$<span class="counter-value" data-target="22.89">0</span>k</h5>
-                                        <p class="text-muted mb-0">Earnings</p>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-6 col-sm-3">
-                                    <div class="p-3 border border-dashed border-start-0">
-                                        <h5 class="mb-1"><span class="counter-value" data-target="367">0</span></h5>
-                                        <p class="text-muted mb-0">Refunds</p>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                                <div class="col-6 col-sm-3">
-                                    <div class="p-3 border border-dashed border-start-0 border-end-0">
-                                        <h5 class="mb-1 text-success"><span class="counter-value" data-target="18.92">0</span>%</h5>
-                                        <p class="text-muted mb-0">Conversation Ratio</p>
-                                    </div>
-                                </div>
-                                <!--end col-->
-                            </div>
-                        </div><!-- end card header -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="flex-grow-1">
+                                            <h5 class="card-title mb-0">Connections</h5>
+                                        </div>
+                                        <div class="flex-shrink-0">
+                                            <div class="dropdown">
+                                                <a href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="ri-more-2-fill fs-14"></i>
+                                                </a>
 
-                        <div class="card-body p-0 pb-2">
-                            <div class="w-100">
-                                <div id="customer_impression_charts" data-colors='["--tb-dark", "--tb-primary", "--tb-secondary"]' class="apex-charts" dir="ltr"></div>
-                            </div>
-                        </div><!-- end card body -->
-                    </div><!-- end card -->
-                </div><!-- end col -->
-            </div>
-
-            <div class="row">
-                <div class="col-xl-12">
-                    <!-- card -->
-                    <div class="card bg-info-subtle text-info border-0">
-                        <div class="card-body">
-                            <div class="row gy-3">
-                                <div class="col-sm">
-                                    <h5 class="card-title fs-17">Need More Sales?</h5>
-                                    <p class="mb-0">Upgrade to pro for added benefits.</p>
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
+                                                    <li><a class="dropdown-item" href="#">View</a></li>
+                                                    <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                    <li><a class="dropdown-item" href="#">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            <div class="d-flex align-items-center pb-3">
+                                                <div class="avatar-xs flex-shrink-0 me-3">
+                                                    <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div>
+                                                        <h5 class="fs-14 mb-1">Esther James</h5>
+                                                        <p class="fs-13 text-muted mb-0">475 Connections</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-shrink-0 ms-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-info custom-toggle active" data-bs-toggle="button" aria-pressed="true">
+                                                        <span class="icon-on"><i class="ri-user-follow-line align-bottom me-1"></i> Follow</span>
+                                                        <span class="icon-off"><i class="ri-user-unfollow-line align-bottom me-1"></i> Unfollow</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center py-3">
+                                                <div class="avatar-xs flex-shrink-0 me-3">
+                                                    <img src="{{ URL::asset('build/images/users/avatar-6.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div>
+                                                        <h5 class="fs-14 mb-1">Jacqueline Steve</h5>
+                                                        <p class="fs-13 text-muted mb-0">UI/UX Designer</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-shrink-0 ms-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-info custom-toggle" data-bs-toggle="button" aria-pressed="true">
+                                                        <span class="icon-on"><i class="ri-user-follow-line align-bottom me-1"></i> Follow</span>
+                                                        <span class="icon-off"><i class="ri-user-unfollow-line align-bottom me-1"></i> Unfollow</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center py-3">
+                                                <div class="avatar-xs flex-shrink-0 me-3">
+                                                    <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div>
+                                                        <h5 class="fs-14 mb-1">George Whalen</h5>
+                                                        <p class="fs-13 text-muted mb-0">Backend Developer</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-shrink-0 ms-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-info custom-toggle" data-bs-toggle="button" aria-pressed="true">
+                                                        <span class="icon-on"><i class="ri-user-follow-line align-bottom me-1"></i> Follow</span>
+                                                        <span class="icon-off"><i class="ri-user-unfollow-line align-bottom me-1"></i> Unfollow</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center py-3">
+                                                <div class="avatar-xs flex-shrink-0 me-3">
+                                                    <img src="{{ URL::asset('build/images/users/avatar-8.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div>
+                                                        <h5 class="fs-14 mb-1">George Whalen</h5>
+                                                        <p class="fs-13 text-muted mb-0">Backend Developer</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-shrink-0 ms-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-info custom-toggle" data-bs-toggle="button" aria-pressed="true">
+                                                        <span class="icon-on"><i class="ri-user-follow-line align-bottom me-1"></i> Follow</span>
+                                                        <span class="icon-off"><i class="ri-user-unfollow-line align-bottom me-1"></i> Unfollow</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center py-3">
+                                                <div class="avatar-xs flex-shrink-0 me-3">
+                                                    <img src="{{ URL::asset('build/images/users/avatar-9.jpg') }}" alt="" class="img-fluid rounded-circle" />
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <div>
+                                                        <h5 class="fs-14 mb-1">George Whalen</h5>
+                                                        <p class="fs-13 text-muted mb-0">Backend Developer</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-shrink-0 ms-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-info custom-toggle" data-bs-toggle="button" aria-pressed="true">
+                                                        <span class="icon-on"><i class="ri-user-follow-line align-bottom me-1"></i> Follow</span>
+                                                        <span class="icon-off"><i class="ri-user-unfollow-line align-bottom me-1"></i> Unfollow</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- end card body -->
+                                    <div class="card-footer text-center">
+                                        <a href="#!" class="link-secondar">View All Connections <i class="bi bi-arrow-right"></i></a>
+                                    </div>
                                 </div>
-                                <div class="col-sm-auto">
-                                    <button type="button" class="btn btn-info btn-label rounded-pill"><i class="ri-markup-line label-icon align-middle rounded-pill fs-16 me-2"></i> Upgrade Account</button>
-                                </div>
+                                <!--end card-->
                             </div>
-                            <div class="position-absolute top-0 start-50 mt-2 opacity-25">
-                                <i class="bi bi-shop display-4"></i>
+                            <!--end col-->
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <h5 class="card-title mb-0 flex-grow-1">Activity Stream</h5>
+                                        <div class="flex-shrink-0">
+                                            <button type="button" class="btn btn-soft-primary btn-sm">
+                                                View All Activity
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0">
+                                        <div data-simplebar style="max-height: 400px;" class="p-3 pt-0">
+                                            <ul class="acitivity-timeline-2 list-unstyled mb-0">
+                                                <li>
+                                                    <h6 class="fs-14">Purchase by James Price</h6>
+                                                    <p>09:24 PM</p>
+                                                    <p class="mb-0">Product noise evolve smartwatch</p>
+                                                </li>
+                                                <li>
+                                                    <h6 class="fs-14">New ticket received <span class="badge text-bg-info align-middle ms-1">New</span></h6>
+                                                    <p class="mb-3">4 days ago</p>
+                                                    <p class="text-muted mb-0">User <span class="text-secondary">Erica245</span> submitted a ticket</p>
+                                                </li>
+                                                <li>
+                                                    <h6 class="fs-14">Adding a new event with attachments</h6>
+                                                    <p class="mb-3">30 days ago</p>
+                                                    <div class="row g-3">
+                                                        <div class="col-auto">
+                                                            <div class="d-flex position-relative gap-2 border border-dashed p-2 rounded-3">
+                                                                <div class="flex-shrink-0">
+                                                                    <i class="bi bi-file-earmark-image fs-17 text-danger"></i>
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    <a href="javascript:void(0);" class="stretched-link">
+                                                                        <h6 class="mb-1 fs-12">UI/UX design</h6>
+                                                                    </a>
+                                                                    <small class="text-muted">685 KB</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-auto">
+                                                            <div class="d-flex position-relative gap-2 border border-dashed p-2 rounded-3">
+                                                                <div class="flex-shrink-0">
+                                                                    <i class="bi bi-file-pdf fs-17 text-info"></i>
+                                                                </div>
+                                                                <div class="flex-grow-1 ms-2">
+                                                                    <a href="javascript:void(0);" class="stretched-link">
+                                                                        <h6 class="mb-1 fs-12">Hybrix Invoice</h6>
+                                                                    </a>
+                                                                    <small class="text-muted">342 KB</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h6 class="fs-14">Templates layout upload</h6>
+                                                    <p class="mb-3">1 week ago</p>
+                                                    <p class="text-muted fst-italic">
+                                                        Powerful, clean & modern responsive bootstrap 5 admin template. The maximum file size for uploads in this demo :
+                                                    </p>
+                                                    <div class="row mt-2">
+                                                        <div class="col-xxl-10">
+                                                            <div class="row border border-dashed gx-2 p-2">
+                                                                <div class="col-3">
+                                                                    <img src="{{ URL::asset('build/images/small/img-3.jpg') }}" alt="" class="img-fluid rounded">
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-3">
+                                                                    <img src="{{ URL::asset('build/images/small/img-5.jpg') }}" alt="" class="img-fluid rounded">
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-3">
+                                                                    <img src="{{ URL::asset('build/images/small/img-7.jpg') }}" alt="" class="img-fluid rounded">
+                                                                </div>
+                                                                <!--end col-->
+                                                                <div class="col-3">
+                                                                    <img src="{{ URL::asset('build/images/small/img-9.jpg') }}" alt="" class="img-fluid rounded">
+                                                                </div>
+                                                                <!--end col-->
+                                                            </div>
+                                                            <!--end row-->
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="time">01:30 PM</div>
+                                                    <p>Lunch time after which sleep just doesn't want to let go of me. 🤝</p>
+                                                </li>
+                                                <li>
+                                                    <div class="time">3:30 PM</div>
+                                                    <p>Drink the magical chai, it will ward off sleep they said. 🤷‍</p>
+                                                </li>
+                                                <li>
+                                                    <div class="time">4:30 PM </div>
+                                                    <p>The only time I don't feel sleepy cause it's work out time. I mean walking time. 😹</p>
+                                                </li>
+                                                <li>
+                                                    <div class="time">07:00 PM </div>
+                                                    <p>Food my tummy needs, sleep my body needs.👿</p>
+                                                </li>
+                                                <li>
+                                                    <div class="time">07:30 PM </div>
+                                                    <p>My tummy's happy time 🍝</p>
+                                                </li>
+                                                <li>
+                                                    <div class="time">10:00 PM </div>
+                                                    <p>uh oh!!! fuel low, get some snacks but wait should I just take a quick nap?🤓 </p>
+                                                </li>
+                                                <li>
+                                                    <div class="time">2:30 PM </div>
+                                                    <p>All hail! The time to sleep has finally arrived.😴😴😴😴😴 </p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end card-->
                             </div>
                         </div>
                     </div>
-                    <!-- end card -->
+                    <!--end col-->
                 </div>
-                <!-- end col -->
-
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Recent Orders</h4>
-                            <div class="flex-shrink-0">
-                                <div class="dropdown card-header-dropdown">
-                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="fw-semibold text-uppercase fs-12">Sort by:
-                                        </span><span class="text-muted">Today<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Today</a>
-                                        <a class="dropdown-item" href="#">Yesterday</a>
-                                        <a class="dropdown-item" href="#">Last 7 Days</a>
-                                        <a class="dropdown-item" href="#">Last 30 Days</a>
-                                        <a class="dropdown-item" href="#">This Month</a>
-                                        <a class="dropdown-item" href="#">Last Month</a>
+                <!--end row-->
+            </div>
+            <div class="tab-pane fade" id="activities" role="tabpanel">
+                <div class="card">
+                    <div class="card-body px-0">
+                        <h5 class="card-title mb-4 px-3">Activity Stream</h5>
+                        <div data-simplebar style="max-height: 405px;" class="p-3 pt-0">
+                            <ul class="acitivity-timeline-2 list-unstyled mb-0">
+                                <li>
+                                    <h6 class="fs-14">Purchase by James Price</h6>
+                                    <p>09:24 PM</p>
+                                    <p class="mb-0">Product noise evolve smartwatch</p>
+                                </li>
+                                <li>
+                                    <h6 class="fs-14">New ticket received <span class="badge text-bg-info align-middle ms-1">New</span></h6>
+                                    <p class="mb-3">4 days ago</p>
+                                    <p class="text-muted mb-0">User <span class="text-secondary">Erica245</span> submitted a ticket</p>
+                                </li>
+                                <li>
+                                    <h6 class="fs-14">Adding a new event with attachments</h6>
+                                    <p class="mb-3">30 days ago</p>
+                                    <div class="border border-dashed p-2 rounded-3">
+                                        <div class="row g-3">
+                                            <div class="col-auto">
+                                                <div class="d-flex position-relative gap-2">
+                                                    <div class="flex-shrink-0">
+                                                        <i class="bi bi-file-earmark-image fs-17 text-danger"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-2">
+                                                        <a href="javascript:void(0);" class="stretched-link">
+                                                            <h6>UI/UX design</h6>
+                                                        </a>
+                                                        <small>685 KB</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="d-flex position-relative gap-2">
+                                                    <div class="flex-shrink-0">
+                                                        <i class="bi bi-file-pdf fs-17 text-info"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-2">
+                                                        <a href="javascript:void(0);" class="stretched-link">
+                                                            <h6>Hybrix Invoice</h6>
+                                                        </a>
+                                                        <small>342 KB</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div><!-- end card header -->
-
-                        <div class="card-body">
-                            <div class="table-responsive table-card">
-                                <table class="table table-centered align-middle table-nowrap mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th scope="col">Purchase ID</th>
-                                            <th scope="col">Customer Name</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">OrderDate</th>
-                                            <th scope="col">Vendor</th>
-                                            <th scope="col">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#TB010331</a>
-                                            </td>
-                                            <td>
-                                                Macbook Pro
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Terry White</div>
+                                </li>
+                                <li>
+                                    <h6 class="fs-14">Templates layout upload</h6>
+                                    <p class="mb-3">1 week ago</p>
+                                    <p class="text-muted fst-italic">
+                                        Powerful, clean & modern responsive bootstrap 5 admin template. The maximum file size for uploads in this demo :
+                                    </p>
+                                    <div class="row mt-2">
+                                        <div class="col-xxl-10">
+                                            <div class="row border border-dashed gx-2 p-2">
+                                                <div class="col-3">
+                                                    <img src="{{ URL::asset('build/images/small/img-3.jpg') }}" alt="" class="img-fluid rounded">
                                                 </div>
-                                            </td>
-                                            <td>
-                                                $658.00
-                                            </td>
-                                            <td>28 Oct, 2022</td>
-                                            <td>Brazil</td>
-                                            <td>
-                                                <span class="badge text-success  bg-success-subtle">Paid</span>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#TB010332</a>
-                                            </td>
-                                            <td>
-                                                Borosil Paper Cup
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Daniel Gonzalez</div>
+                                                <!--end col-->
+                                                <div class="col-3">
+                                                    <img src="{{ URL::asset('build/images/small/img-5.jpg') }}" alt="" class="img-fluid rounded">
                                                 </div>
-                                            </td>
-                                            <td>
-                                                $345.00
-                                            </td>
-                                            <td>29 Oct, 2022</td>
-                                            <td>Namibia</td>
-                                            <td>
-                                                <span class="badge text-danger  bg-danger-subtle">Unpaid</span>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#TB010333</a>
-                                            </td>
-                                            <td>
-                                                Stillbird Helmet
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Stephen Bird</div>
+                                                <!--end col-->
+                                                <div class="col-3">
+                                                    <img src="{{ URL::asset('build/images/small/img-7.jpg') }}" alt="" class="img-fluid rounded">
                                                 </div>
-                                            </td>
-                                            <td>
-                                                $80.00
-                                            </td>
-                                            <td>30 Oct, 2022</td>
-                                            <td>USA</td>
-                                            <td>
-                                                <span class="badge text-success  bg-success-subtle">Paid</span>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#TB010334</a>
-                                            </td>
-                                            <td>
-                                                Bentwood Chair
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/users/avatar-10.jpg') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Ashley Silva</div>
+                                                <!--end col-->
+                                                <div class="col-3">
+                                                    <img src="{{ URL::asset('build/images/small/img-9.jpg') }}" alt="" class="img-fluid rounded">
                                                 </div>
-                                            </td>
-                                            <td>
-                                                $349.99
-                                            </td>
-                                            <td>31 Oct, 2022</td>
-                                            <td>Argentina</td>
-                                            <td>
-                                                <span class="badge text-warning bg-warning-subtle">Pending</span>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#TB010335</a>
-                                            </td>
-                                            <td>
-                                                Apple Headphone
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/users/avatar-9.jpg') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Scott Wilson</div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                $264.37
-                                            </td>
-                                            <td>01 Nov, 2022</td>
-                                            <td>Jersey</td>
-                                            <td>
-                                                <span class="badge text-danger  bg-danger-subtle">Unpaid</span>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#TB010336</a>
-                                            </td>
-                                            <td>
-                                                Smart Watch for Man's
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/users/avatar-8.jpg') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Heather Jimenez</div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                $741.98
-                                            </td>
-                                            <td>02 Nov, 2022</td>
-                                            <td>Spain</td>
-                                            <td>
-                                                <span class="badge text-success  bg-success-subtle">Paid</span>
-                                            </td>
-                                        </tr><!-- end tr -->
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row align-items-center mt-4 pt-2 gy-2 text-center text-sm-start">
-                                <div class="col-sm">
-                                    <div class="text-muted">
-                                        Showing <span class="fw-semibold">6</span> of <span class="fw-semibold">25</span> Results
+                                                <!--end col-->
+                                            </div>
+                                            <!--end row-->
+                                        </div>
                                     </div>
+                                </li>
+                                <li>
+                                    <div class="time">01:30 PM</div>
+                                    <p>Lunch time after which sleep just doesn't want to let go of me. 🤝</p>
+                                </li>
+                                <li>
+                                    <div class="time">3:30 PM</div>
+                                    <p>Drink the magical chai, it will ward off sleep they said. 🤷‍</p>
+                                </li>
+                                <li>
+                                    <div class="time">4:30 PM </div>
+                                    <p>The only time I don't feel sleepy cause it's work out time. I mean walking time. 😹</p>
+                                </li>
+                                <li>
+                                    <div class="time">07:00 PM </div>
+                                    <p>Food my tummy needs, sleep my body needs.👿</p>
+                                </li>
+                                <li>
+                                    <div class="time">07:30 PM </div>
+                                    <p>My tummy's happy time 🍝</p>
+                                </li>
+                                <li>
+                                    <div class="time">10:00 PM </div>
+                                    <p>uh oh!!! fuel low, get some snacks but wait should I just take a quick nap?🤓 </p>
+                                </li>
+                                <li>
+                                    <div class="time">2:30 PM </div>
+                                    <p>All hail! The time to sleep has finally arrived.😴😴😴😴😴 </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--end card-->
+
+            </div>
+            <!--end tab-pane-->
+            <div class="tab-pane fade" id="projects" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-1.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Chat App Update</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">2 year Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <div class="avatar-title rounded-circle bg-light text-primary">
+                                                                    J
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-warning bg-warning-subtle fs-10">Inprogress</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">80%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
                                 </div>
-                                <div class="col-sm-auto">
-                                    <ul class="pagination pagination-separated pagination-sm mb-0 justify-content-center justify-content-sm-start">
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-2.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">ABC Project Customization</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">2 month Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-primary  bg-primary-subtle fs-10">Progress</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">65%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-3.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Client - Frank Hook</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">1 year Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <div class="avatar-title rounded-circle bg-light text-primary">
+                                                                    M
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-info bg-info-subtle fs-10">New</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">50%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-5.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Hybrix Project</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">11 year Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-5.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-success  bg-success-subtle fs-10">Completed</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">95%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-6.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Brand Logo Design</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">10 min Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <div class="avatar-title rounded-circle bg-light text-primary">
+                                                                    E
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-info bg-info-subtle fs-10">New</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">38%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width: 38%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-4.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Chat App</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">8 hr Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <div class="avatar-title rounded-circle bg-light text-primary">
+                                                                    R
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-warning bg-warning-subtle fs-10">Inprogress</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">76%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="76" aria-valuemin="0" aria-valuemax="100" style="width: 76%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-8.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Bsuiness Template - UI/UX design</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">7 month Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-6.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-8.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <div class="avatar-title rounded-circle bg-light text-primary">
+                                                                    R
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-success  bg-success-subtle fs-10">Completed</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">87%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-sm-6">
+                                <div class="card profile-project-card shadow-none mt-3">
+                                    <div class="card-body p-4">
+
+                                        <div class="d-flex">
+                                            <div class="text-center mb-4 me-3">
+                                                <img src="{{ URL::asset('build/images/companies/img-7.png') }}" alt="" width="30px" height="30px" class="">
+                                            </div>
+                                            <div class="flex-grow-1 text-muted overflow-hidden">
+                                                <h5 class="fs-14 text-truncate"><a href="#" class="text-body">Project Update</a></h5>
+                                                <p class="text-muted text-truncate mb-0">Last Update : <span class="fw-semibold text-body">48 min Ago</span></p>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="col text-end dropdown"> <a href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-three-dots-vertical"></i> </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end">
+                                                        <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                        <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="flex-grow-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div>
+                                                        <h5 class="fs-12 text-muted mb-0">Members :</h5>
+                                                    </div>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-6.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="avatar-group-item">
+                                                            <div class="avatar-xs">
+                                                                <img src="{{ URL::asset('build/images/users/avatar-5.jpg') }}" alt="" class="rounded-circle img-fluid" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 ms-2">
+                                                <div class="badge text-primary  bg-primary-subtle fs-10">progress</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <h5 class="fs-12">Progress <span class="text-danger float-end">69%</span></h5>
+                                            <div class="progress progress-bar-alt-danger progress-sm">
+                                                <div class="progress-bar bg-danger progress-animated wow animated animated" role="progressbar" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100" style="width: 69%; visibility: visible; animation-name: animationProgress;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end card body -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!--end col-->
+
+
+                            <!--end col-->
+                            <div class="col-lg-12">
+                                <div class="mt-4">
+                                    <ul class="pagination pagination-separated justify-content-center mb-0">
                                         <li class="page-item disabled">
-                                            <a href="#" class="page-link">←</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a href="#" class="page-link">1</a>
+                                            <a href="javascript:void(0);" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
                                         </li>
                                         <li class="page-item active">
-                                            <a href="#" class="page-link">2</a>
+                                            <a href="javascript:void(0);" class="page-link">1</a>
                                         </li>
                                         <li class="page-item">
-                                            <a href="#" class="page-link">3</a>
+                                            <a href="javascript:void(0);" class="page-link">2</a>
                                         </li>
                                         <li class="page-item">
-                                            <a href="#" class="page-link">→</a>
+                                            <a href="javascript:void(0);" class="page-link">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a href="javascript:void(0);" class="page-link">4</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a href="javascript:void(0);" class="page-link">5</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a href="javascript:void(0);" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        <!--end row-->
                     </div>
+                    <!--end card-body-->
                 </div>
+                <!--end card-->
             </div>
+            <!--end tab-pane-->
 
-            <div class="row">
-                <div class="col-xl-8">
-                    <div class="swiper selling-product">
-                        <div class="d-flex pt-2 pb-4">
-                            <h5 class="card-title fs-16 mb-1">Best Selling Products</h5>
-                        </div>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="max-width: 280px;">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="bg-info-subtle rounded py-3">
-                                            <img src="{{ URL::asset('build/images/products/img-1.png') }}" alt="" style="max-height: 215px;max-width: 100%;" class="mx-auto d-block">
-                                        </div>
-                                        <div class="pt-3">
-                                            <span class="float-end">4.7 <i class="ri-star-half-fill text-warning align-bottom"></i></span>
-                                            <h5 class="text-body mb-3">$64.21</h5>
-                                            <a href="#!" class="stretched-link">
-                                                <h6 class="fs-15 lh-base text-truncate mb-0">Rockerz 550 Over Ear Bluetooth Headphones</h6>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="max-width: 280px;">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="bg-warning-subtle rounded py-3">
-                                            <img src="{{ URL::asset('build/images/products/img-6.png') }}" alt="" style="max-height: 215px;max-width: 100%;" class="mx-auto d-block">
-                                        </div>
-                                        <div class="pt-3">
-                                            <span class="float-end">4.9 <i class="ri-star-half-fill text-warning align-bottom"></i></span>
-                                            <h5 class="text-body mb-3">$154.78</h5>
-                                            <a href="#!" class="stretched-link">
-                                                <h6 class="fs-15 lh-base text-truncate mb-0">Monte Carlo Sweaters</h6>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="max-width: 280px;">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="bg-primary-subtle rounded py-3">
-                                            <img src="{{ URL::asset('build/images/products/img-8.png') }}" alt="" style="max-height: 215px;max-width: 100%;" class="mx-auto d-block">
-                                        </div>
-                                        <div class="pt-3">
-                                            <span class="float-end">4.3 <i class="ri-star-half-fill text-warning align-bottom"></i></span>
-                                            <h5 class="text-body mb-3">$36.97</h5>
-                                            <a href="#!" class="stretched-link">
-                                                <h6 class="fs-15 lh-base text-truncate mb-0">Men's Running Shoes Active Grip</h6>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" style="max-width: 280px;">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="bg-success-subtle rounded py-3">
-                                            <img src="{{ URL::asset('build/images/products/img-5.png') }}" alt="" style="max-height: 215px;max-width: 100%;" class="mx-auto d-block">
-                                        </div>
-                                        <div class="pt-3">
-                                            <span class="float-end">4.8 <i class="ri-star-half-fill text-warning align-bottom"></i></span>
-                                            <h5 class="text-body mb-3">$71.34</h5>
-                                            <a href="#!" class="stretched-link">
-                                                <h6 class="fs-15 lh-base text-truncate mb-0">United Colors Of Benetton</h6>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-                <div class="col-xl-4">
-                    <div class="card">
-                        <div class="card-header d-flex">
-                            <h5 class="card-title flex-grow-1 mb-0">Product Delivery</h5>
-                            <a href="#!" class="flex-shrink-0">View All <i class="ri-arrow-right-line align-bottom ms-1"></i></a>
-                        </div>
-                        <div class="card-body px-0">
-                            <div data-simplebar style="max-height: 320px;">
-                                <div class="vstack gap-3 px-3">
-                                    <div class="p-3 border border-dashed rounded-3">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="avatar-sm bg-light rounded p-1 flex-shrink-0">
-                                                <img src="{{ URL::asset('build/images/products/img-8.png') }}" alt="" class="img-fluid d-block">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h6 class="text-truncate">Men's Running Shoes Activ... </h6>
-                                                <p class="text-truncate mb-0">by: <span class="text-info">Aaron Bauer</span></p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <span class="badge text-warning bg-warning-subtle">Shipping</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 border border-dashed rounded-3">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="avatar-sm bg-light rounded p-1 flex-shrink-0">
-                                                <img src="{{ URL::asset('build/images/products/img-4.png') }}" alt="" class="img-fluid d-block">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h6 class="text-truncate">Striped Baseball Cap</h6>
-                                                <p class="text-truncate mb-0">by: <span class="text-info">Jansh Brown</span></p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <span class="badge text-success  bg-success-subtle">Delivered</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 border border-dashed rounded-3">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="avatar-sm bg-light rounded p-1 flex-shrink-0">
-                                                <img src="{{ URL::asset('build/images/products/img-3.png') }}" alt="" class="img-fluid d-block">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h6 class="text-truncate">350 ml Glass Groce...</h6>
-                                                <p class="text-truncate mb-0">by: <span class="text-info">Scott Wilson</span></p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <span class="badge text-danger  bg-danger-subtle">Out of Delivery</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 border border-dashed rounded-3">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="avatar-sm bg-light rounded p-1 flex-shrink-0">
-                                                <img src="{{ URL::asset('build/images/products/img-6.png') }}" alt="" class="img-fluid d-block">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h6 class="text-truncate">Monte Carlo Sweaters</h6>
-                                                <p class="text-truncate mb-0">by: <span class="text-info">Daniel Gonzalez</span></p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <span class="badge text-success  bg-success-subtle">Delivered</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 border border-dashed rounded-3">
-                                        <div class="d-flex align-items-center gap-2">
-                                            <div class="avatar-sm bg-light rounded p-1 flex-shrink-0">
-                                                <img src="{{ URL::asset('build/images/products/img-9.png') }}" alt="" class="img-fluid d-block">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h6 class="text-truncate">Ceramic Coffee Mug</h6>
-                                                <p class="text-truncate mb-0">by: <span class="text-info">Stephen Garrison</span></p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <span class="badge text-warning bg-warning-subtle">Shipping</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end row-->
-
-            <div class="row">
-                <div class="col-xl-4">
-                    <div class="card card-height-100">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Sales by Category</h4>
-                            <div class="flex-shrink-0">
-                                <div class="dropdown card-header-dropdown">
-                                    <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="text-muted">Report<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Download Report</a>
-                                        <a class="dropdown-item" href="#">Export</a>
-                                        <a class="dropdown-item" href="#">Import</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- end card header -->
-
-                        <div class="card-body">
-                            <div id="multiple_radialbar" data-colors='["--tb-primary", "--tb-info", "--tb-success", "--tb-secondary"]' class="apex-charts" dir="ltr"></div>
-                        </div>
-                    </div> <!-- .card-->
-                </div> <!-- .col-->
-
-                <div class="col-xl-8">
-                    <div class="card">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Stock Report</h4>
-                            <div class="flex-shrink-0">
-                                <button type="button" class="btn btn-soft-info btn-sm">
-                                    <i class="ri-file-list-3-line align-middle"></i> Generate Report
-                                </button>
-                            </div>
-                        </div><!-- end card header -->
-
-                        <div class="card-body">
-                            <div class="table-responsive table-card">
-                                <table class="table table-borderless table-centered table-hover align-middle table-nowrap mb-0">
-                                    <thead class=" table-light">
-                                        <tr>
-                                            <th scope="col">Product ID</th>
-                                            <th scope="col">Product Name</th>
-                                            <th scope="col">Updated Date</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">Stock Status</th>
-                                            <th scope="col">Quantity</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#00541</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/products/img-1.png') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Rockerz Ear Bluetooth Headphones</div>
-                                                </div>
-                                            </td>
-                                            <td>16 Aug, 2022</td>
-                                            <td>
-                                                <span class="text-secondary">$658.00</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge text-success  bg-success-subtle">In Stock</span>
-                                            </td>
-                                            <td>15 PCS</td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#07484</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/products/img-5.png') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">United Colors Of Benetton</div>
-                                                </div>
-                                            </td>
-                                            <td>05 Sep, 2022</td>
-                                            <td>
-                                                <span class="text-secondary">$145.00</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge text-warning bg-warning-subtle">Low Stock</span>
-                                            </td>
-                                            <td>05 PCS</td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#01641</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/products/img-4.png') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Striped Baseball Cap</div>
-                                                </div>
-                                            </td>
-                                            <td>28 Sep, 2022</td>
-                                            <td>
-                                                <span class="text-secondary">$215.00</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge text-danger  bg-danger-subtle">Out of Stock</span>
-                                            </td>
-                                            <td>0 PCS</td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#00065</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/products/img-3.png') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">350 ml Glass Grocery Container</div>
-                                                </div>
-                                            </td>
-                                            <td>02 Oct, 2022</td>
-                                            <td>
-                                                <span class="text-secondary">$79.99</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge text-success  bg-success-subtle">In Stock</span>
-                                            </td>
-                                            <td>37 PCS</td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#00156</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/products/img-2.png') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">One Seater Sofa</div>
-                                                </div>
-                                            </td>
-                                            <td>11 Oct, 2022</td>
-                                            <td>
-                                                <span class="text-secondary">$264.99</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge text-success  bg-success-subtle">In Stock</span>
-                                            </td>
-                                            <td>23 PCS</td>
-                                        </tr><!-- end tr -->
-                                        <tr>
-                                            <td>
-                                                <a href="#!" class="fw-medium link-primary">#09102</a>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 me-2">
-                                                        <img src="{{ URL::asset('build/images/products/img-8.png') }}" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">Men's Running Shoes Active Grip</div>
-                                                </div>
-                                            </td>
-                                            <td>19 Nov, 2022</td>
-                                            <td>
-                                                <span class="text-secondary">$264.99</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge text-warning bg-warning-subtle">Low Stock</span>
-                                            </td>
-                                            <td>23 PCS</td>
-                                        </tr><!-- end tr -->
-                                    </tbody><!-- end tbody -->
-                                </table><!-- end table -->
-                            </div>
-                        </div>
-                    </div> <!-- .card-->
-                </div> <!-- .col-->
-            </div> <!-- end row-->
-
-            <div class="row">
-                <div class="col-xl-12">
-                    <!-- card -->
-                    <div class="card card-height-100">
-                        <div class="card-header align-items-center d-flex">
-                            <h4 class="card-title mb-0 flex-grow-1">Top Retail Sales Location</h4>
-                            <div class="flex-shrink-0">
-                                <button type="button" class="btn btn-soft-primary btn-sm">
-                                    Export Report
-                                </button>
-                            </div>
-                        </div><!-- end card header -->
-
-                        <!-- card body -->
-                        <div class="card-body">
-
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div id="world-map-line-markers" data-colors='["--tb-light"]' style="height: 420px"></div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="mb-4">
-                                        <h6 class="text-muted mb-3 fw-medium fs-12 text-uppercase">All Users Statistics</h6>
-                                        <h4>1,87,42,102 <small class="text-muted fw-normal fs-13">users</small></h4>
-                                    </div>
-                                    <div>
-                                        <p class="mb-2 fw-medium">Current Activity</p>
-                                        <div class="progress mb-4">
-                                            <div class="progress-bar" role="progressbar" aria-label="Segment one" style="width: 8%" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-success" role="progressbar" aria-label="Segment two" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-info" role="progressbar" aria-label="Segment three" style="width: 14%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-danger" role="progressbar" aria-label="Segment three" style="width: 7%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-secondary" role="progressbar" aria-label="Segment three" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-dark" role="progressbar" aria-label="Segment three" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-warning" role="progressbar" aria-label="Segment three" style="width: 2%" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar bg-light" role="progressbar" aria-label="Segment three" style="width: 14%" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-
-                                        <p><i class="ri-checkbox-blank-circle-fill text-primary align-bottom me-1"></i> Canada <span class="float-end">8%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-success align-bottom me-1"></i>Greenland <span class="float-end">20%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-info align-bottom me-1"></i>US <span class="float-end">14%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-secondary align-bottom me-1"></i>Russia <span class="float-end">25%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-danger align-bottom me-1"></i>Brazil <span class="float-end">7%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-body align-bottom me-1"></i>Sydney <span class="float-end">10%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-warning align-bottom me-1"></i>Norway<span class="float-end">2%</span></p>
-                                        <p><i class="ri-checkbox-blank-circle-fill text-light align-bottom me-1"></i>China <span class="float-end">14%</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end card body -->
-                    </div>
-                    <!-- end card -->
-                </div>
-                <!-- end col -->
-            </div>
-
-        </div> <!-- end .h-100-->
-
-    </div> <!-- end col -->
-
-    <div class="col-auto layout-rightside-col">
-        <div class="overlay"></div>
-        <div class="layout-rightside">
-            <div class="card h-100 rounded-0">
-                <div class="widget-userlist" data-simplebar>
-                    <div class="card-body pb-0">
-                        <p class="text-muted text-uppercase fw-medium fs-13">Recent Chat</p>
-                        <ul class="hstack gap-2 chat-panel-list list-unstyled">
-                            <li>
-                                <a href="#!" class="text-center avatar-sm h-auto d-block">
-                                    <div class="chat-user-img online">
-                                        <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" class="avatar-sm rounded-circle chatlist-user-image" alt="">
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <p class="text-muted mb-0 mt-2 text-truncate chatlist-user-name">Ashley Silva</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-center avatar-sm h-auto d-block">
-                                    <div class="chat-user-img online">
-                                        <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" class="avatar-sm rounded-circle chatlist-user-image" alt="">
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <p class="text-muted mb-0 mt-2 text-truncate chatlist-user-name">Misty Taylor</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-center avatar-sm h-auto d-block">
-                                    <div class="chat-user-img away">
-                                        <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" class="avatar-sm rounded-circle chatlist-user-image" alt="">
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <p class="text-muted mb-0 mt-2 text-truncate chatlist-user-name">Scott Wilson</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-center avatar-sm h-auto d-block">
-                                    <div class="chat-user-img online">
-                                        <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" class="avatar-sm rounded-circle chatlist-user-image" alt="">
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <p class="text-muted mb-0 mt-2 text-truncate chatlist-user-name">Patricia Wilson</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" class="text-center avatar-sm h-auto d-block">
-                                    <div class="chat-user-img away">
-                                        <img src="{{ URL::asset('build/images/users/avatar-5.jpg') }}" class="avatar-sm rounded-circle chatlist-user-image" alt="">
-                                        <span class="user-status"></span>
-                                    </div>
-                                    <p class="text-muted mb-0 mt-2 text-truncate chatlist-user-name">Allyson Wigfall</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="tab-pane fade" id="friends" role="tabpanel">
+                <div class="card">
                     <div class="card-body">
-                        <div class="d-flex">
-                            <div class="search-box flex-grow-1">
-                                <input type="text" class="form-control" id="searchResultList" autocomplete="off" placeholder="Search for ...">
-                                <i class="ri-search-line search-icon"></i>
-                            </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <h5 class="card-title flex-grow-1 mb-0">Friends</h5>
                         </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <ul class="chat-panel-list list-group list-group-flush mb-0 border-dashed">
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Ashley Silva</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-info mb-0 text-truncate">Good Morning</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <p class="mb-1 text-muted fs-12">04:32 PM</p>
-                                        <span class="badge text-info bg-info-subtle rounded-circle fs-10">4</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Misty Taylor</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-info mb-0 text-truncate">Okay, Byy</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <p class="mb-1 text-muted fs-12">02:49 PM</p>
-                                        <span class="badge text-info bg-info-subtle rounded-circle fs-10">1</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Scott Wilson</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-info mb-0 text-truncate">Yeah everything is fine...</p>
-                                    </div>
-                                    <div class="text-end">
-                                        <p class="mb-1 text-muted fs-12">12:04 PM</p>
-                                        <span class="badge text-info bg-info-subtle rounded-circle fs-10">8</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Patricia Wilson</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Hey! there I'm available</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">11:11 AM</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-5.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Allyson Wigfall</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">I've finished it! See you so</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">09:24 AM</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-6.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Martha Griffin</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Wow that's great</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">16/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-7.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Mark Sargent</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Nice to meet you</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">16/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-8.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Ray Stricklin</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Hey, Hi Ray Stricklin ...!</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">16/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-9.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Frank Taylor</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Happy holiday 🙂</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">15/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-10.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Karla Basso</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Okay, Sure.</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">14/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Sally McPherson</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Thanks</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">14/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Lizzie Beil</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Our next meeting tomorrow at 10.00 AM</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">13/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Mark Williams</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">See you tomorrow</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">12/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Vina Scott</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Yeah everything is fine...</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">11/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="d-flex align-items-center gap-1">
-                                    <div class="flex-shrink-0 me-2">
-                                        <img src="{{ URL::asset('build/images/users/avatar-5.jpg') }}" alt="" class="avatar-xs rounded-circle chatlist-user-image" />
-                                    </div>
-                                    <div class="flex-grow-1 overflow-hidden">
-                                        <a href="#!" class="stretched-link">
-                                            <h6 class="mb-1 chatlist-user-name">Keli Henry</h6>
-                                        </a>
-                                        <p class="chatlist-desc fs-13 text-muted mb-0 text-truncate">Good afternoon</p>
-                                    </div>
-                                    <div class="text-end align-self-start">
-                                        <p class="mb-1 text-muted fs-12">11/11</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="widget-user-chatlist">
-                    <div class="chat-topbar p-4 border-bottom border-bottom-dashed">
-                        <div class="align-items-center d-flex">
-                            <div class="flex-grow-1">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2">
-                                        <div class="flex-shrink-0 chat-user-img online align-self-center me-2 ms-0">
+                        <div class="row">
+                            <div class="col-xxl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown position-absolute end-0 pe-3"> <a class="fs-18" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="ri-more-2-fill align-baseline"></i> </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="text-center mb-4">
+                                            <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="" class="avatar-md rounded-3" />
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#member-overview" data-bs-toggle="offcanvas">
+                                                <h5 class="fs-17">Cristofer Leblanc</h5>
+                                            </a>
+                                            <span class="badge text-secondary bg-secondary-subtle">Product Manager</span>
+                                        </div>
+                                        <div class="mt-2 text-center pt-4 hstack gap-2 justify-content-center">
                                             <div class="avatar-xs">
-                                                <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" class="rounded-circle img-fluid userprofile" alt="">
-                                                <span class="user-status"></span>
+                                                <a href="#" class="avatar-title rounded-circle bg-info-subtle text-info"><i class="ri-facebook-fill align-middle"></i></a>
+                                            </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-success-subtle text-success"><i class="ri-twitter-fill align-middle"></i></a>
+                                            </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-danger-subtle text-danger"><i class="ri-linkedin-fill align-middle"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="flex-grow-1">
-                                        <h5 class="fs-14 mb-0 profile-username">Ashley Silva</h5>
+                                    <div class="card-body hstack gap-2 border-top">
+                                        <button class="btn btn-soft-info w-100">Message</button>
+                                        <button class="btn btn-soft-primary w-100">Overview</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex-shrink-0">
-                                <div class="d-flex align-items-start gap-2">
-                                    <div class="dropdown">
-                                        <a class="btn btn-ghost-secondary btn-sm fs-16" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="ri-more-2-fill"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#"><i class="bi bi-archive text-muted me-2"></i> Archive</a>
-                                            <a class="dropdown-item" href="#"><i class="bi bi-mic-mute text-muted me-2"></i> Muted</a>
-                                            <a class="dropdown-item" href="#"><i class="bi bi-trash3 text-muted me-2"></i> Delete</a>
+                            <div class="col-xxl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown position-absolute end-0 pe-3"> <a class="fs-18" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="ri-more-2-fill align-baseline"></i> </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="text-center mb-4">
+                                            <img src="{{ URL::asset('build/images/users/avatar-2.jpg') }}" alt="" class="avatar-md rounded-3" />
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#member-overview" data-bs-toggle="offcanvas">
+                                                <h5 class="fs-17">Jordan Villareal</h5>
+                                            </a>
+                                            <span class="badge text-secondary bg-secondary-subtle">Software Engineer</span>
+                                        </div>
+                                        <div class="mt-2 text-center pt-4 hstack gap-2 justify-content-center">
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-info-subtle text-info"><i class="ri-facebook-fill align-middle"></i></a>
+                                            </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-success-subtle text-success"><i class="ri-twitter-fill align-middle"></i></a>
+                                            </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-danger-subtle text-danger"><i class="ri-linkedin-fill align-middle"></i></a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <button type="button" class="btn btn-soft-danger btn-sm fs-16" id="close-chatlist"><i class="ri-close-fill"></i></button>
+                                    <div class="card-body hstack gap-2 border-top">
+                                        <button class="btn btn-soft-info w-100">Message</button>
+                                        <button class="btn btn-soft-primary w-100">Overview</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- end chat-topbar -->
-                    <div class="card-body p-0">
-                        <div>
-                            <div id="users-chat">
-                                <div class="chat-conversation p-3" id="chat-conversation" data-simplebar>
-                                    <ul class="list-unstyled chat-conversation-list chat-sm" id="users-conversation">
-                                        <li class="chat-list left">
-                                            <div class="conversation-list">
-                                                <div class="chat-avatar">
-                                                    <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="">
-                                                </div>
-                                                <div class="user-chat-content">
-                                                    <div class="ctext-wrap">
-                                                        <div class="ctext-wrap-content">
-                                                            <p class="mb-0 ctext-content">Good morning 😊</p>
-                                                        </div>
-                                                        <div class="dropdown align-self-start message-box-drop">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots-vertical"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-reply me-2 text-muted align-bottom"></i>Reply</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-share me-2 text-muted align-bottom"></i>Forward</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-files me-2 text-muted align-bottom"></i>Copy</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-bookmark me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                <a class="dropdown-item delete-item" href="javascript:void(0)"><i class="bi bi-trash3 me-2 text-muted align-bottom"></i>Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="conversation-name"><small class="text-muted time">09:07 am</small> <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span></div>
-                                                </div>
+                            <div class="col-xxl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown position-absolute end-0 pe-3"> <a class="fs-18" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="ri-more-2-fill align-baseline"></i> </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="text-center mb-4">
+                                            <img src="{{ URL::asset('build/images/users/avatar-3.jpg') }}" alt="" class="avatar-md rounded-3" />
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#member-overview" data-bs-toggle="offcanvas">
+                                                <h5 class="fs-17">Damon Boxter</h5>
+                                            </a>
+                                            <span class="badge text-secondary bg-secondary-subtle">UI/UX Designer</span>
+                                        </div>
+                                        <div class="mt-2 text-center pt-4 hstack gap-2 justify-content-center">
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-info-subtle text-info"><i class="ri-facebook-fill align-middle"></i></a>
                                             </div>
-                                        </li>
-                                        <!-- chat-list -->
-
-                                        <li class="chat-list right">
-                                            <div class="conversation-list">
-                                                <div class="user-chat-content">
-                                                    <div class="ctext-wrap">
-                                                        <div class="ctext-wrap-content">
-                                                            <p class="mb-0 ctext-content">Good morning, How are you? What about our next meeting?</p>
-                                                        </div>
-                                                        <div class="dropdown align-self-start message-box-drop">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots-vertical"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-reply me-2 text-muted align-bottom"></i>Reply</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-share me-2 text-muted align-bottom"></i>Forward</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-files me-2 text-muted align-bottom"></i>Copy</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-bookmark me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                <a class="dropdown-item delete-item" href="javascript:void(0)"><i class="bi bi-trash3 me-2 text-muted align-bottom"></i>Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="conversation-name"><small class="text-muted time">09:08 am</small> <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span></div>
-                                                </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-success-subtle text-success"><i class="ri-twitter-fill align-middle"></i></a>
                                             </div>
-                                        </li>
-                                        <!-- chat-list -->
-
-                                        <li class="chat-list left">
-                                            <div class="conversation-list">
-                                                <div class="chat-avatar">
-                                                    <img src="{{ URL::asset('build/images/users/avatar-1.jpg') }}" alt="">
-                                                </div>
-                                                <div class="user-chat-content">
-                                                    <div class="ctext-wrap">
-                                                        <div class="ctext-wrap-content">
-                                                            <p class="mb-0 ctext-content">Yeah everything is fine. Our next meeting tomorrow at 10.00 AM</p>
-                                                        </div>
-                                                        <div class="dropdown align-self-start message-box-drop">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots-vertical"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-reply me-2 text-muted align-bottom"></i>Reply</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-share me-2 text-muted align-bottom"></i>Forward</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-files me-2 text-muted align-bottom"></i>Copy</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-bookmark me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                <a class="dropdown-item delete-item" href="javascript:void(0)"><i class="bi bi-trash3 me-2 text-muted align-bottom"></i>Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ctext-wrap">
-                                                        <div class="ctext-wrap-content">
-                                                            <p class="mb-0 ctext-content">Yeah everything is fine.</p>
-                                                        </div>
-                                                        <div class="dropdown align-self-start message-box-drop">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots-vertical"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-reply me-2 text-muted align-bottom"></i>Reply</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-share me-2 text-muted align-bottom"></i>Forward</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-files me-2 text-muted align-bottom"></i>Copy</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-bookmark me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                <a class="dropdown-item delete-item" href="javascript:void(0)"><i class="bi bi-trash3 me-2 text-muted align-bottom"></i>Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ctext-wrap">
-                                                        <div class="ctext-wrap-content">
-                                                            <p class="mb-0 ctext-content">Hey, I'm going to meet a friend of mine at the department store. I have to buy some presents for my parents 🎁.</p>
-                                                        </div>
-                                                        <div class="dropdown align-self-start message-box-drop">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots-vertical"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-reply me-2 text-muted align-bottom"></i>Reply</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-share me-2 text-muted align-bottom"></i>Forward</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-files me-2 text-muted align-bottom"></i>Copy</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-bookmark me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                <a class="dropdown-item delete-item" href="javascript:void(0)"><i class="bi bi-trash3 me-2 text-muted align-bottom"></i>Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="conversation-name"><small class="text-muted time">09:10 am</small> <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span></div>
-                                                </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-danger-subtle text-danger"><i class="ri-linkedin-fill align-middle"></i></a>
                                             </div>
-                                        </li>
-                                        <!-- chat-list -->
-
-                                        <li class="chat-list right">
-                                            <div class="conversation-list">
-                                                <div class="user-chat-content">
-                                                    <div class="ctext-wrap">
-                                                        <div class="ctext-wrap-content">
-                                                            <p class="mb-0 ctext-content">Wow that's great</p>
-                                                        </div>
-                                                        <div class="dropdown align-self-start message-box-drop">
-                                                            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="bi bi-three-dots-vertical"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu">
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-reply me-2 text-muted align-bottom"></i>Reply</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-share me-2 text-muted align-bottom"></i>Forward</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-files me-2 text-muted align-bottom"></i>Copy</a>
-                                                                <a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-bookmark me-2 text-muted align-bottom"></i>Bookmark</a>
-                                                                <a class="dropdown-item delete-item" href="javascript:void(0)"><i class="bi bi-trash3 me-2 text-muted align-bottom"></i>Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="conversation-name"><small class="text-muted time">09:12 am</small> <span class="text-success check-message-icon"><i class="ri-check-double-line align-bottom"></i></span></div>
-                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body hstack gap-2 border-top">
+                                        <button class="btn btn-soft-info w-100">Message</button>
+                                        <button class="btn btn-soft-primary w-100">Overview</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="dropdown position-absolute end-0 pe-3"> <a class="fs-18" href="javascript:void(0);" data-bs-toggle="dropdown" aria-expanded="false"> <i class="ri-more-2-fill align-baseline"></i> </a>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item edit-list" href="#addmemberModal" data-bs-toggle="modal" data-edit-id="12"><i class="ri-pencil-line me-2 align-bottom text-muted"></i>Edit</a></li>
+                                                <li><a class="dropdown-item remove-list" href="#removeMemberModal" data-bs-toggle="modal" data-remove-id="12"><i class="ri-delete-bin-5-line me-2 align-bottom text-muted"></i>Remove</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="text-center mb-4">
+                                            <img src="{{ URL::asset('build/images/users/avatar-4.jpg') }}" alt="" class="avatar-md rounded-3" />
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#member-overview" data-bs-toggle="offcanvas">
+                                                <h5 class="fs-17">Bryant Diaz</h5>
+                                            </a>
+                                            <span class="badge text-secondary bg-secondary-subtle">Engineering Manager</span>
+                                        </div>
+                                        <div class="mt-2 text-center pt-4 hstack gap-2 justify-content-center">
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-info-subtle text-info"><i class="ri-facebook-fill align-middle"></i></a>
                                             </div>
-                                        </li>
-                                        <!-- chat-list -->
-
-                                    </ul>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-success-subtle text-success"><i class="ri-twitter-fill align-middle"></i></a>
+                                            </div>
+                                            <div class="avatar-xs">
+                                                <a href="#" class="avatar-title rounded-circle bg-danger-subtle text-danger"><i class="ri-linkedin-fill align-middle"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body hstack gap-2 border-top">
+                                        <button class="btn btn-soft-info w-100">Message</button>
+                                        <button class="btn btn-soft-primary w-100">Overview</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="position-relative p-4 border-top border-top-dashed">
-                        <form class="chat-form" autocomplete="off">
-                            <div class="row g-2">
-                                <div class="col">
-                                    <div class="position-relative">
-                                        <input type="text" id="chat-input" class="form-control border-light bg-light" placeholder="Enter Message...">
-                                        <div class="chat-input-feedback">
-                                            Please enter a message
-                                        </div>
-                                    </div>
-                                </div><!-- end col -->
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-primary"><i class="bi bi-send-fill"></i></button>
-                                </div><!-- end col -->
-                            </div><!-- end row -->
-                        </form>
                     </div>
                 </div>
-            </div> <!-- end card-->
-        </div> <!-- end .rightbar-->
-    </div> <!-- end col -->
-</div>
+            </div>
+            <!--end tab-pane-->
 
-<div>
-    <button type="button" class="btn-success btn-rounded shadow-lg btn btn-icon layout-rightside-btn fs-22"><i class="ri-chat-smile-2-line"></i></button>
+            <div class="tab-pane fade" id="documents" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-4">
+                            <h5 class="card-title flex-grow-1 mb-0">Documents</h5>
+                            <div class="flex-shrink-0">
+                                <input class="form-control d-none" type="file" id="formFile">
+                                <label for="formFile" class="btn btn-danger"><i class="ri-upload-2-fill me-1 align-bottom"></i> Upload File</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless align-middle mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <th scope="col">File Name</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Size</th>
+                                                <th scope="col">Upload Date</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-transparent text-primary rounded fs-20">
+                                                                <i class="bi bi-file-earmark-zip-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 flex-grow-1">
+                                                            <h6 class="fs-15 mb-0"><a href="javascript:void(0)" class="text-body">Artboard-documents.zip</a>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Zip File</td>
+                                                <td>4.57 MB</td>
+                                                <td>12 Dec 2022</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0);" class="btn btn-light btn-icon" id="dropdownMenuLink15" data-bs-toggle="dropdown" aria-expanded="true">
+                                                            <i class="bi bi-sliders2"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink15">
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill me-2 align-middle text-muted"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-fill me-2 align-middle text-muted"></i>Download</a></li>
+                                                            <li class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line me-2 align-middle text-muted"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-transparent text-danger rounded fs-20">
+                                                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 flex-grow-1">
+                                                            <h6 class="fs-15 mb-0"><a href="javascript:void(0);" class="text-body">Bank Management System</a></h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>PDF File</td>
+                                                <td>8.89 MB</td>
+                                                <td>24 Nov 2022</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0);" class="btn btn-light btn-icon" id="dropdownMenuLink3" data-bs-toggle="dropdown" aria-expanded="true">
+                                                            <i class="bi bi-sliders2"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink3">
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill me-2 align-middle text-muted"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-fill me-2 align-middle text-muted"></i>Download</a></li>
+                                                            <li class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line me-2 align-middle text-muted"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-transparent text-secondary rounded fs-20">
+                                                                <i class="bi bi-file-earmark-play"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 flex-grow-1">
+                                                            <h6 class="fs-15 mb-0"><a href="javascript:void(0);" class="text-body">Tour-video.mp4</a></h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>MP4 File</td>
+                                                <td>14.62 MB</td>
+                                                <td>19 Nov 2022</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0);" class="btn btn-light btn-icon" id="dropdownMenuLink4" data-bs-toggle="dropdown" aria-expanded="true">
+                                                            <i class="bi bi-sliders2"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink4">
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill me-2 align-middle text-muted"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-fill me-2 align-middle text-muted"></i>Download</a></li>
+                                                            <li class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line me-2 align-middle text-muted"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-transparent text-success rounded fs-20">
+                                                                <i class="bi bi-filetype-exe"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 flex-grow-1">
+                                                            <h6 class="fs-15 mb-0"><a href="javascript:void(0);" class="text-body">Account-statement.xsl</a></h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>XSL File</td>
+                                                <td>2.38 KB</td>
+                                                <td>14 Nov 2022</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0);" class="btn btn-light btn-icon" id="dropdownMenuLink5" data-bs-toggle="dropdown" aria-expanded="true">
+                                                            <i class="bi bi-sliders2"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink5">
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill me-2 align-middle text-muted"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-fill me-2 align-middle text-muted"></i>Download</a></li>
+                                                            <li class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line me-2 align-middle text-muted"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-transparent text-info rounded fs-20">
+                                                                <i class="bi bi-folder"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 flex-grow-1">
+                                                            <h6 class="fs-15 mb-0">
+                                                                <a href="javascript:void(0);" class="text-body">Project Screenshots Collection</a></h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Floder File</td>
+                                                <td>87.24 MB</td>
+                                                <td>08 Nov 2022</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0);" class="btn btn-light btn-icon" id="dropdownMenuLink6" data-bs-toggle="dropdown" aria-expanded="true">
+                                                            <i class="bi bi-sliders2"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink6">
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill me-2 align-middle"></i>View</a></li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-fill me-2 align-middle"></i>Download</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line me-2 align-middle"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                    </div>
+                                                </th>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-sm">
+                                                            <div class="avatar-title bg-transparent text-danger rounded fs-20">
+                                                                <i class="bi bi-images"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ms-3 flex-grow-1">
+                                                            <h6 class="fs-15 mb-0">
+                                                                <a href="javascript:void(0);" class="text-body">Hybrix-logo.png</a>
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>PNG File</td>
+                                                <td>879 KB</td>
+                                                <td>02 Nov 2022</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="javascript:void(0);" class="btn btn-light btn-icon" id="dropdownMenuLink7" data-bs-toggle="dropdown" aria-expanded="true">
+                                                            <i class="bi bi-sliders2"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink7">
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-eye-fill me-2 align-middle"></i>View</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0);"><i class="ri-download-2-fill me-2 align-middle"></i>Download</a></li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="javascript:void(0);"><i class="ri-delete-bin-5-line me-2 align-middle"></i>Delete</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a href="javascript:void(0);" class="text-success"><i class="mdi mdi-loading mdi-spin fs-20 align-middle me-2"></i> Load more </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end tab-pane-->
+        </div>
+        <!--end tab-content-->
+    </div>
+    <!--end col-->
 </div>
-
+<!--end row-->
 @endsection
 
 @section('script')
-<!-- apexcharts -->
-<script src="{{ URL::asset('build/libs/apexcharts/apexcharts.min.js') }}"></script>
-<script src="{{ URL::asset('build/libs/jsvectormap/jsvectormap.min.js') }}"></script>
-<script src="{{ URL::asset('build/libs/jsvectormap/maps/world-merc.js') }}"></script>
-<script src="{{ URL::asset('build/libs/swiper/swiper-bundle.min.js')}}"></script>
 
-<!-- dashboard init -->
-<script src="{{ URL::asset('build/libs/list.js/list.min.js') }}"></script>
-<script src="{{ URL::asset('build/js/pages/dashboard-ecommerce.init.js') }}"></script>
+<script src="{{ URL::asset('build/libs/swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{ URL::asset('build/js/pages/profile.init.js')}}"></script>
 <script src="{{ URL::asset('build/js/app.js') }}"></script>
 @endsection

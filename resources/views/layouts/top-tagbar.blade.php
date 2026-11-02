@@ -9,7 +9,7 @@
             <div class="col-md-auto col-6 d-none d-lg-block">
                 <div class="d-flex align-items-center justify-content-center gap-3 fs-13 text-white-50">
                     <div>
-                        <i class="bi bi-envelope align-middle me-2"></i> feki2311fer@hotmail.com
+                        <i class="bi bi-envelope align-middle me-2"></i>contacto@crmrh.com
                     </div>
                     <div>
                         <i class="bi bi-globe align-middle me-2"></i> www.crmrh.com
@@ -29,18 +29,6 @@
                         @case('sp')
                         <img src="{{ URL::asset('build/images/flags/spain.svg') }}" class="me-2 rounded-circle" alt="Header Language" height="20"><span id="lang-name">Española</span>
                         @break
-                        @case('ch')
-                        <img src="{{ URL::asset('build/images/flags/china.svg') }}" class="me-2 rounded-circle" alt="Header Language" height="20"><span id="lang-name">中国人</span>
-                        @break
-                        @case('fr')
-                        <img src="{{ URL::asset('build/images/flags/french.svg') }}" class="me-2 rounded-circle" alt="Header Language" height="20"><span id="lang-name">français</span>
-                        @break
-                        @case('gr')
-                        <img src="{{ URL::asset('build/images/flags/germany.svg') }}" class="me-2 rounded-circle" alt="Header Language" height="20"><span id="lang-name">Deutsche</span>
-                        @break
-                        @case('ae')
-                        <img src="{{ URL::asset('build/images/flags/ae.svg') }}" class="me-2 rounded-circle" alt="Header Language" height="20"> <span id="lang-name">عربى<</span>
-                        @break
                         @default
                         <img  src="{{ URL::asset('build/images/flags/us.svg') }}" alt="Header Language" height="20" class="rounded-circle me-2"> <span id="lang-name">English</span>
                         @endswitch
@@ -56,43 +44,9 @@
                         <!-- item-->
                         <a href="{{ url('index/sp') }}" class="dropdown-item notify-item language" data-lang="sp" title="Spanish">
                             <img src="{{ URL::asset('build/images/flags/spain.svg') }}" alt="user-image" class="me-2 rounded-circle" height="18">
-                            <span class="align-middle">Española</span>
+                            <span class="align-middle">Español</span>
                         </a>
 
-                        <!-- item-->
-                        <a href="{{ url('index/gr') }}" class="dropdown-item notify-item language" data-lang="gr" title="German">
-                            <img src="{{ URL::asset('build/images/flags/germany.svg') }}" alt="user-image" class="me-2 rounded-circle" height="18"> <span class="align-middle">Deutsche</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="{{ url('index/it') }}" class="dropdown-item notify-item language" data-lang="it" title="Italian">
-                            <img src="{{ URL::asset('build/images/flags/italy.svg') }}" alt="user-image" class="me-2 rounded-circle" height="18"><span class="align-middle">Italiana</span>
-                        </a>
-
-
-                        <!-- item-->
-                        <a href="{{ url('index/ru') }}" class="dropdown-item notify-item language" data-lang="ru" title="Russian">
-                            <img src="{{ URL::asset('build/images/flags/russia.svg') }}" alt="user-image" class="me-2 rounded-circle" height="18">
-                            <span class="align-middle">русский</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="{{ url('index/ch') }}" class="dropdown-item notify-item language" data-lang="ch" title="Chinese">
-                            <img src="{{ URL::asset('build/images/flags/china.svg') }}" alt="user-image" class="me-2 rounded-circle" height="18">
-                            <span class="align-middle">中国人</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="{{ url('index/fr') }}" class="dropdown-item notify-item language" data-lang="fr" title="French">
-                            <img src="{{ URL::asset('build/images/flags/french.svg') }}" alt="user-image" class="me-2 rounded-circle" height="18">
-                            <span class="align-middle">français</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="{{ url('index/ae') }}" class="dropdown-item notify-item language" data-lang="ar" title="Arabic">
-                            <img src="{{URL::asset('build/images/flags/ae.svg')}}" alt="user-image" class="me-2 rounded-circle" height="18">
-                            <span class="align-middle">عربى</span>
-                        </a>
                     </div>
                 </div>
             </div>

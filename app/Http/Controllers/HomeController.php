@@ -36,7 +36,7 @@ class HomeController extends Controller
         if (view()->exists($request->path())) {
             return view($request->path());
         }
-        return abort(404);
+        return  view("auth-404-alt");;
     }
 
     public function lang($locale)
