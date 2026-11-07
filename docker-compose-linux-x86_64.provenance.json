@@ -1,0 +1,1369 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "name": "docker-compose-linux-x86_64",
+      "digest": {
+        "sha256": "47737f4236e6d3ccea7291995203f8f018058783b4c3a9469119811a0b5db8c0"
+      }
+    }
+  ],
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://github.com/moby/buildkit/blob/master/docs/attestations/slsa-definitions.md",
+      "resolvedDependencies": [
+        {
+          "uri": "pkg:docker/crazymax/osxcross@15.5-alpine?platform=linux%2Famd64",
+          "digest": {
+            "sha256": "ab016ff172118c7c98f49413bbdbf496b7c96c2677d1fb1736543301b8359341"
+          }
+        },
+        {
+          "uri": "pkg:docker/docker/buildkit-syft-scanner@1.12.0?platform=linux%2Famd64",
+          "digest": {
+            "sha256": "ae4f3b554449e7e25548e7d8ccc029d17357348e30c6e3df01b92bc93654d6a9"
+          }
+        },
+        {
+          "uri": "pkg:docker/docker/dockerfile@1",
+          "digest": {
+            "sha256": "4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e"
+          }
+        },
+        {
+          "uri": "pkg:docker/alpine@latest?platform=linux%2Famd64",
+          "digest": {
+            "sha256": "294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6"
+          }
+        },
+        {
+          "uri": "pkg:docker/golang@1.26.10-alpine3.23?platform=linux%2Famd64",
+          "digest": {
+            "sha256": "a07f231c19b03e6106cf442f02a5bcf262147e744d15b7b5e4b6d81d420c70a0"
+          }
+        },
+        {
+          "uri": "pkg:docker/tonistiigi/xx@1.9.0?platform=linux%2Famd64",
+          "digest": {
+            "sha256": "c64defb9ed5a91eacb37f96ccc3d4cd72521c4bd18d5442905b95e2226b0e707"
+          }
+        },
+        {
+          "uri": "https://github.com/docker/compose.git#refs/tags/v5.6.1",
+          "digest": {
+            "sha1": "02f05e3787e5b2e83220923907bb014e6a36b359"
+          }
+        }
+      ],
+      "externalParameters": {
+        "configSource": {
+          "uri": "https://github.com/docker/compose.git#refs/tags/v5.6.1",
+          "digest": {
+            "sha1": "02f05e3787e5b2e83220923907bb014e6a36b359"
+          },
+          "path": "Dockerfile"
+        },
+        "request": {
+          "frontend": "gateway.v0",
+          "args": {
+            "build-arg:BUILDKIT_CONTEXT_KEEP_GIT_DIR": "1",
+            "build-arg:BUILD_TAGS": "e2e",
+            "cmdline": "docker/dockerfile:1",
+            "source": "docker/dockerfile:1",
+            "target": "release"
+          },
+          "secrets": [
+            {
+              "id": "GIT_AUTH_HEADER",
+              "optional": true
+            },
+            {
+              "id": "GIT_AUTH_TOKEN",
+              "optional": true
+            }
+          ],
+          "root": {
+            "configSource": {
+              "uri": "https://github.com/docker/compose.git#refs/tags/v5.6.1",
+              "digest": {
+                "sha1": "02f05e3787e5b2e83220923907bb014e6a36b359"
+              },
+              "path": "Dockerfile"
+            },
+            "request": {
+              "args": {
+                "build-arg:BUILDKIT_CONTEXT_KEEP_GIT_DIR": "1",
+                "build-arg:BUILD_TAGS": "e2e",
+                "target": "release"
+              }
+            }
+          },
+          "compatibilityVersion": 30
+        }
+      },
+      "internalParameters": {
+        "buildConfig": {
+          "digestMapping": {
+            "sha256:0106bad98c4bb77891706c57ec5e3b399cf0a8cb1f4ff8fb3944844960597ced": "step9",
+            "sha256:1307a5b55187269aed3613e9ea10b10eb59a9229f3a8d6ffa607ef8108093d28": "step2",
+            "sha256:3171d3f649b7239eb9f67a671394ada236d42c446d208d5a618cdefc35786b98": "step12",
+            "sha256:42f3351c8b2a289fd65cae27d9d98a332e282718a5c809453a564f9bccde4757": "step7",
+            "sha256:5d48e105eb35f25974afdb538b108812f91134a8313b7d1674d94cea75677d80": "step4",
+            "sha256:6a2b13481f8fccc837c9a1656dc6450205a653e643a716425df0efaef2ca0542": "step11",
+            "sha256:6f9656873d7744ec49df4530753866e941b4767d070630a123f33a63bd603620": "step1",
+            "sha256:73238b5ab282de13ea20194fa9c9d21fec534ef6e22c23a59af1c1c8aa2cb8d7": "step3",
+            "sha256:83d14abef8f1fcda370e98537148152c91500622c63a1bf8f1eaf0fac82e9108": "step0",
+            "sha256:8af4b0989b90e6387286a8c16b22af8956a9acc3759c7b8f62556a3b6b81a26b": "step14",
+            "sha256:9e60807df873c91d35909cc9ecd246913b4dc6b7ab9d3e11b7f31d93369fbba6": "step15",
+            "sha256:c866e7c1d658f95db6651650ae4b1d7f8c5388d32268dc994081da0df2ca8a5a": "step6",
+            "sha256:ce8fc30521a1288494bd5c534b4ce18dc202654dfa9e6873ae8fbb5ae0d86b69": "step10",
+            "sha256:d62ac9d8753a72cbd4de917890e9bc578d93eb5f2adfc79a000bbabdbb7de6aa": "step5",
+            "sha256:f2bde36c21770fc89cbd3b2a7e807d69dc94842aa2cea9fde8d1b7fd85227ef4": "step8",
+            "sha256:f617f984b4f28c0104d2dcbebff9d1034ceb326bb1a80893d408f665fe048271": "step13"
+          },
+          "llbDefinition": [
+            {
+              "id": "step0",
+              "op": {
+                "Op": {
+                  "source": {
+                    "identifier": "docker-image://docker.io/library/alpine:latest@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6"
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step1",
+              "inputs": [
+                "step0:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "mkdir": {
+                            "makeParents": true,
+                            "mode": 493,
+                            "path": "/work",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": -1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step2",
+              "op": {
+                "Op": {
+                  "source": {
+                    "identifier": "docker-image://docker.io/library/golang:1.26.10-alpine3.23@sha256:a07f231c19b03e6106cf442f02a5bcf262147e744d15b7b5e4b6d81d420c70a0"
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step3",
+              "op": {
+                "Op": {
+                  "source": {
+                    "identifier": "docker-image://docker.io/tonistiigi/xx:1.9.0@sha256:c64defb9ed5a91eacb37f96ccc3d4cd72521c4bd18d5442905b95e2226b0e707"
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step4",
+              "inputs": [
+                "step2:0",
+                "step3:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "src": "/",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": 1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step5",
+              "inputs": [
+                "step4:0"
+              ],
+              "op": {
+                "Op": {
+                  "exec": {
+                    "meta": {
+                      "args": [
+                        "/bin/sh",
+                        "-c",
+                        "apk add --no-cache       clang       docker       file       findutils       git       make       protoc       protobuf-dev"
+                      ],
+                      "cwd": "/go",
+                      "env": [
+                        "PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "GOLANG_VERSION=1.26.10",
+                        "GOTOOLCHAIN=local",
+                        "GOPATH=/go"
+                      ],
+                      "removeMountStubsRecursive": true
+                    },
+                    "mounts": [
+                      {
+                        "dest": "/"
+                      }
+                    ]
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step6",
+              "inputs": [
+                "step5:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "mkdir": {
+                            "makeParents": true,
+                            "mode": 493,
+                            "path": "/src",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": -1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step7",
+              "op": {
+                "Op": {
+                  "source": {
+                    "attrs": {
+                      "git.authheadersecret": "GIT_AUTH_HEADER",
+                      "git.authtokensecret": "GIT_AUTH_TOKEN",
+                      "git.checksum": "6cbc19a3fd59e305fb814dca4d854a4fb67d2941",
+                      "git.fullurl": "https://github.com/docker/compose.git",
+                      "git.keepgitdir": "true"
+                    },
+                    "identifier": "git://github.com/docker/compose.git#refs/tags/v5.6.1"
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step8",
+              "inputs": [
+                "step6:0",
+                "step7:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/src/",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "src": "/go.*",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": 0,
+                        "output": 0,
+                        "secondaryInput": 1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step9",
+              "inputs": [
+                "step8:0"
+              ],
+              "op": {
+                "Op": {
+                  "exec": {
+                    "meta": {
+                      "args": [
+                        "/bin/sh",
+                        "-c",
+                        "go mod download"
+                      ],
+                      "cwd": "/src",
+                      "env": [
+                        "PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "GOLANG_VERSION=1.26.10",
+                        "GOTOOLCHAIN=local",
+                        "GOPATH=/go",
+                        "CGO_ENABLED=0"
+                      ],
+                      "removeMountStubsRecursive": true
+                    },
+                    "mounts": [
+                      {
+                        "dest": "/"
+                      },
+                      {
+                        "cacheOpt": {
+                          "ID": "//go/pkg/mod"
+                        },
+                        "dest": "/go/pkg/mod",
+                        "input": -1,
+                        "mountType": 3,
+                        "output": -1
+                      },
+                      {
+                        "cacheOpt": {
+                          "ID": "//root/.cache/go-build"
+                        },
+                        "dest": "/root/.cache/go-build",
+                        "input": -1,
+                        "mountType": 3,
+                        "output": -1
+                      }
+                    ]
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step10",
+              "op": {
+                "Op": {
+                  "source": {
+                    "identifier": "docker-image://docker.io/crazymax/osxcross:15.5-alpine@sha256:ab016ff172118c7c98f49413bbdbf496b7c96c2677d1fb1736543301b8359341"
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step11",
+              "inputs": [
+                "step9:0",
+                "step7:0",
+                "step10:0"
+              ],
+              "op": {
+                "Op": {
+                  "exec": {
+                    "meta": {
+                      "args": [
+                        "/bin/sh",
+                        "-c",
+                        "xx-go --wrap \u0026\u0026     if [ \"$(xx-info os)\" == \"darwin\" ]; then export CGO_ENABLED=1; export BUILD_TAGS=fsnotify,$BUILD_TAGS; fi \u0026\u0026     make build GO_BUILDTAGS=\"$BUILD_TAGS\" DESTDIR=/out \u0026\u0026     xx-verify --static /out/docker-compose"
+                      ],
+                      "cwd": "/src",
+                      "env": [
+                        "PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "GOLANG_VERSION=1.26.10",
+                        "GOTOOLCHAIN=local",
+                        "GOPATH=/go",
+                        "CGO_ENABLED=0",
+                        "BUILD_TAGS=e2e",
+                        "TARGETPLATFORM=linux/amd64",
+                        "MACOSX_VERSION_MIN=11.0"
+                      ],
+                      "removeMountStubsRecursive": true
+                    },
+                    "mounts": [
+                      {
+                        "dest": "/"
+                      },
+                      {
+                        "cacheOpt": {
+                          "ID": "//go/pkg/mod"
+                        },
+                        "dest": "/go/pkg/mod",
+                        "input": -1,
+                        "mountType": 3,
+                        "output": -1
+                      },
+                      {
+                        "cacheOpt": {
+                          "ID": "//root/.cache"
+                        },
+                        "dest": "/root/.cache",
+                        "input": -1,
+                        "mountType": 3,
+                        "output": -1
+                      },
+                      {
+                        "dest": "/src",
+                        "input": 1,
+                        "output": -1,
+                        "readonly": true
+                      },
+                      {
+                        "dest": "/xx-sdk",
+                        "input": 2,
+                        "output": -1,
+                        "readonly": true,
+                        "selector": "/osxsdk"
+                      }
+                    ]
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step12",
+              "inputs": [
+                "step11:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "src": "/out/docker-compose",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": -1,
+                        "output": 0,
+                        "secondaryInput": 0
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step13",
+              "inputs": [
+                "step1:0",
+                "step12:0"
+              ],
+              "op": {
+                "Op": {
+                  "exec": {
+                    "meta": {
+                      "args": [
+                        "/bin/sh",
+                        "-c",
+                        "mkdir -p /out \u0026\u0026     TARGETARCH=$([ \"$TARGETARCH\" = \"amd64\" ] \u0026\u0026 echo \"x86_64\" || echo \"$TARGETARCH\");     TARGETARCH=$([ \"$TARGETARCH\" = \"arm64\" ] \u0026\u0026 echo \"aarch64\" || echo \"$TARGETARCH\");     cp docker-compose* \"/out/docker-compose-${TARGETOS}-${TARGETARCH}${TARGETVARIANT}$(ls docker-compose* | sed -e 's/^docker-compose//')\""
+                      ],
+                      "cwd": "/work",
+                      "env": [
+                        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                        "TARGETOS=linux",
+                        "TARGETARCH=amd64",
+                        "TARGETVARIANT="
+                      ],
+                      "removeMountStubsRecursive": true
+                    },
+                    "mounts": [
+                      {
+                        "dest": "/"
+                      },
+                      {
+                        "dest": "/work",
+                        "input": 1,
+                        "output": -1,
+                        "readonly": true
+                      }
+                    ]
+                  }
+                },
+                "constraints": {},
+                "platform": {
+                  "Architecture": "amd64",
+                  "OS": "linux"
+                }
+              }
+            },
+            {
+              "id": "step14",
+              "inputs": [
+                "step13:0"
+              ],
+              "op": {
+                "Op": {
+                  "file": {
+                    "actions": [
+                      {
+                        "Action": {
+                          "copy": {
+                            "allowEmptyWildcard": true,
+                            "allowWildcard": true,
+                            "createDestPath": true,
+                            "dest": "/",
+                            "dirCopyContents": true,
+                            "followSymlink": true,
+                            "mode": -1,
+                            "src": "/out",
+                            "timestamp": -1
+                          }
+                        },
+                        "input": -1,
+                        "output": 0,
+                        "secondaryInput": 0
+                      }
+                    ]
+                  }
+                },
+                "constraints": {}
+              }
+            },
+            {
+              "id": "step15",
+              "inputs": [
+                "step14:0"
+              ],
+              "op": {
+                "Op": {}
+              }
+            }
+          ]
+        },
+        "builderPlatform": "linux/amd64",
+        "github_actor": "ndeloof",
+        "github_actor_id": "132757",
+        "github_event_name": "push",
+        "github_event_payload": {
+          "after": "02f05e3787e5b2e83220923907bb014e6a36b359",
+          "base_ref": null,
+          "before": "0000000000000000000000000000000000000000",
+          "commits": [],
+          "compare": "https://github.com/docker/compose/compare/v5.6.1",
+          "created": true,
+          "deleted": false,
+          "enterprise": {
+            "avatar_url": "https://avatars.githubusercontent.com/b/19176?v=4",
+            "created_at": "2022-12-30T23:53:17Z",
+            "description": null,
+            "html_url": "https://github.com/enterprises/docker",
+            "id": 19176,
+            "name": "Docker",
+            "node_id": "E_kgDNSug",
+            "slug": "docker",
+            "updated_at": "2026-10-08T11:47:44Z",
+            "website_url": null
+          },
+          "forced": false,
+          "head_commit": {
+            "author": {
+              "email": "github@gone.nl",
+              "name": "Sebastiaan van Stijn",
+              "username": "thaJeztah"
+            },
+            "committer": {
+              "email": "nicolas.deloof@gmail.com",
+              "name": "Nicolas De Loof",
+              "username": "ndeloof"
+            },
+            "distinct": true,
+            "id": "6cbc19a3fd59e305fb814dca4d854a4fb67d2941",
+            "message": "update to go1.26.10\n\nThese releases include 1 security fix following the security policy:\n\n- crypto/x509: mitigation for security concerns with a specific Certificate Authority\n\n  We're blocking trust in a small set of intermediate certificates due to specific security concerns around their operation.\n\n  Verify will now filter out chains which contain these intermediates, preventing them from being returned to the caller.\n\n  We highly recommend immediately upgrading to this release.\n\n  This is CVE-2026-111943 and Go issue https://go.dev/issue/82345.\n\nrelease notes: https://go.dev/doc/devel/release#go1.26.10\n\nSigned-off-by: Sebastiaan van Stijn \u003cgithub@gone.nl\u003e\n(cherry picked from commit a0abda078296374135062ad1718eb9e89427093a)\nSigned-off-by: Nicolas De Loof \u003cnicolas.deloof@gmail.com\u003e",
+            "timestamp": "2026-10-21T09:20:42+02:00",
+            "tree_id": "a2949580079954d6ef253a4c8484d1f651add335",
+            "url": "https://github.com/docker/compose/commit/6cbc19a3fd59e305fb814dca4d854a4fb67d2941"
+          },
+          "organization": {
+            "avatar_url": "https://avatars.githubusercontent.com/u/5429470?v=4",
+            "description": "Docker helps developers bring their ideas to life by conquering the complexity of app development.",
+            "events_url": "https://api.github.com/orgs/docker/events",
+            "hooks_url": "https://api.github.com/orgs/docker/hooks",
+            "id": 5429470,
+            "issues_url": "https://api.github.com/orgs/docker/issues",
+            "login": "docker",
+            "members_url": "https://api.github.com/orgs/docker/members{/member}",
+            "node_id": "MDEyOk9yZ2FuaXphdGlvbjU0Mjk0NzA=",
+            "public_members_url": "https://api.github.com/orgs/docker/public_members{/member}",
+            "repos_url": "https://api.github.com/orgs/docker/repos",
+            "url": "https://api.github.com/orgs/docker"
+          },
+          "pusher": {
+            "email": "nicolas.deloof@gmail.com",
+            "name": "ndeloof"
+          },
+          "ref": "refs/tags/v5.6.1",
+          "repository": {
+            "allow_forking": true,
+            "archive_url": "https://api.github.com/repos/docker/compose/{archive_format}{/ref}",
+            "archived": false,
+            "assignees_url": "https://api.github.com/repos/docker/compose/assignees{/user}",
+            "blobs_url": "https://api.github.com/repos/docker/compose/git/blobs{/sha}",
+            "branches_url": "https://api.github.com/repos/docker/compose/branches{/branch}",
+            "clone_url": "https://github.com/docker/compose.git",
+            "collaborators_url": "https://api.github.com/repos/docker/compose/collaborators{/collaborator}",
+            "comments_url": "https://api.github.com/repos/docker/compose/comments{/number}",
+            "commits_url": "https://api.github.com/repos/docker/compose/commits{/sha}",
+            "compare_url": "https://api.github.com/repos/docker/compose/compare/{base}...{head}",
+            "contents_url": "https://api.github.com/repos/docker/compose/contents/{+path}",
+            "contributors_url": "https://api.github.com/repos/docker/compose/contributors",
+            "created_at": 1386589258,
+            "custom_properties": {
+              "Tier1": "true"
+            },
+            "default_branch": "main",
+            "deployments_url": "https://api.github.com/repos/docker/compose/deployments",
+            "description": "Define and run multi-container applications with Docker",
+            "disabled": false,
+            "downloads_url": "https://api.github.com/repos/docker/compose/downloads",
+            "events_url": "https://api.github.com/repos/docker/compose/events",
+            "fork": false,
+            "forks": 5875,
+            "forks_count": 5875,
+            "forks_url": "https://api.github.com/repos/docker/compose/forks",
+            "full_name": "docker/compose",
+            "git_commits_url": "https://api.github.com/repos/docker/compose/git/commits{/sha}",
+            "git_refs_url": "https://api.github.com/repos/docker/compose/git/refs{/sha}",
+            "git_tags_url": "https://api.github.com/repos/docker/compose/git/tags{/sha}",
+            "git_url": "git://github.com/docker/compose.git",
+            "has_discussions": false,
+            "has_downloads": true,
+            "has_issues": true,
+            "has_pages": false,
+            "has_projects": false,
+            "has_pull_requests": true,
+            "has_wiki": false,
+            "homepage": "https://docs.docker.com/compose/",
+            "hooks_url": "https://api.github.com/repos/docker/compose/hooks",
+            "html_url": "https://github.com/docker/compose",
+            "id": 15045751,
+            "is_template": false,
+            "issue_comment_url": "https://api.github.com/repos/docker/compose/issues/comments{/number}",
+            "issue_events_url": "https://api.github.com/repos/docker/compose/issues/events{/number}",
+            "issues_url": "https://api.github.com/repos/docker/compose/issues{/number}",
+            "keys_url": "https://api.github.com/repos/docker/compose/keys{/key_id}",
+            "labels_url": "https://api.github.com/repos/docker/compose/labels{/name}",
+            "language": "Go",
+            "languages_url": "https://api.github.com/repos/docker/compose/languages",
+            "license": {
+              "key": "apache-2.0",
+              "name": "Apache License 2.0",
+              "node_id": "MDc6TGljZW5zZTI=",
+              "spdx_id": "Apache-2.0",
+              "url": "https://api.github.com/licenses/apache-2.0"
+            },
+            "master_branch": "main",
+            "merges_url": "https://api.github.com/repos/docker/compose/merges",
+            "milestones_url": "https://api.github.com/repos/docker/compose/milestones{/number}",
+            "mirror_url": null,
+            "name": "compose",
+            "node_id": "MDEwOlJlcG9zaXRvcnkxNTA0NTc1MQ==",
+            "notifications_url": "https://api.github.com/repos/docker/compose/notifications{?since,all,participating}",
+            "open_issues": 98,
+            "open_issues_count": 98,
+            "organization": "docker",
+            "owner": {
+              "avatar_url": "https://avatars.githubusercontent.com/u/5429470?v=4",
+              "email": "github@docker.com",
+              "events_url": "https://api.github.com/users/docker/events{/privacy}",
+              "followers_url": "https://api.github.com/users/docker/followers",
+              "following_url": "https://api.github.com/users/docker/following{/other_user}",
+              "gists_url": "https://api.github.com/users/docker/gists{/gist_id}",
+              "gravatar_id": "",
+              "html_url": "https://github.com/docker",
+              "id": 5429470,
+              "login": "docker",
+              "name": "docker",
+              "node_id": "MDEyOk9yZ2FuaXphdGlvbjU0Mjk0NzA=",
+              "organizations_url": "https://api.github.com/users/docker/orgs",
+              "received_events_url": "https://api.github.com/users/docker/received_events",
+              "repos_url": "https://api.github.com/users/docker/repos",
+              "site_admin": false,
+              "starred_url": "https://api.github.com/users/docker/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/docker/subscriptions",
+              "type": "Organization",
+              "url": "https://api.github.com/users/docker",
+              "user_view_type": "public"
+            },
+            "private": false,
+            "pull_request_creation_policy": "all",
+            "pulls_url": "https://api.github.com/repos/docker/compose/pulls{/number}",
+            "pushed_at": 1792567639,
+            "releases_url": "https://api.github.com/repos/docker/compose/releases{/id}",
+            "size": 30002,
+            "ssh_url": "git@github.com:docker/compose.git",
+            "stargazers": 38416,
+            "stargazers_count": 38416,
+            "stargazers_url": "https://api.github.com/repos/docker/compose/stargazers",
+            "statuses_url": "https://api.github.com/repos/docker/compose/statuses/{sha}",
+            "subscribers_url": "https://api.github.com/repos/docker/compose/subscribers",
+            "subscription_url": "https://api.github.com/repos/docker/compose/subscription",
+            "svn_url": "https://github.com/docker/compose",
+            "tags_url": "https://api.github.com/repos/docker/compose/tags",
+            "teams_url": "https://api.github.com/repos/docker/compose/teams",
+            "topics": [
+              "docker",
+              "docker-compose",
+              "go",
+              "golang",
+              "orchestration"
+            ],
+            "trees_url": "https://api.github.com/repos/docker/compose/git/trees{/sha}",
+            "updated_at": "2026-10-21T05:59:32Z",
+            "url": "https://api.github.com/repos/docker/compose",
+            "visibility": "public",
+            "watchers": 38416,
+            "watchers_count": 38416,
+            "web_commit_signoff_required": true
+          },
+          "sender": {
+            "avatar_url": "https://avatars.githubusercontent.com/u/132757?v=4",
+            "events_url": "https://api.github.com/users/ndeloof/events{/privacy}",
+            "followers_url": "https://api.github.com/users/ndeloof/followers",
+            "following_url": "https://api.github.com/users/ndeloof/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ndeloof/gists{/gist_id}",
+            "gravatar_id": "",
+            "html_url": "https://github.com/ndeloof",
+            "id": 132757,
+            "login": "ndeloof",
+            "node_id": "MDQ6VXNlcjEzMjc1Nw==",
+            "organizations_url": "https://api.github.com/users/ndeloof/orgs",
+            "received_events_url": "https://api.github.com/users/ndeloof/received_events",
+            "repos_url": "https://api.github.com/users/ndeloof/repos",
+            "site_admin": false,
+            "starred_url": "https://api.github.com/users/ndeloof/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ndeloof/subscriptions",
+            "type": "User",
+            "url": "https://api.github.com/users/ndeloof",
+            "user_view_type": "public"
+          }
+        },
+        "github_job": "build",
+        "github_ref": "refs/tags/v5.6.1",
+        "github_ref_name": "v5.6.1",
+        "github_ref_protected": "true",
+        "github_ref_type": "tag",
+        "github_repository": "docker/compose",
+        "github_repository_id": "15045751",
+        "github_repository_owner": "docker",
+        "github_repository_owner_id": "5429470",
+        "github_run_attempt": "1",
+        "github_run_id": "39562092012",
+        "github_run_number": "10416",
+        "github_runner_arch": "X64",
+        "github_runner_environment": "github-hosted",
+        "github_runner_image_os": "ubuntu24",
+        "github_runner_image_version": "20261018.339.1",
+        "github_runner_name": "GitHub Actions 1026979863",
+        "github_runner_os": "Linux",
+        "github_runner_tracking_id": "github_08e90f95-6c1a-445e-8095-17e0b175e9e5",
+        "github_server_url": "https://github.com",
+        "github_triggering_actor": "ndeloof",
+        "github_workflow": "ci",
+        "github_workflow_ref": "docker/compose/.github/workflows/ci.yml@refs/tags/v5.6.1",
+        "github_workflow_sha": "6cbc19a3fd59e305fb814dca4d854a4fb67d2941"
+      }
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://github.com/docker/compose/actions/runs/39562092012/attempts/1"
+      },
+      "metadata": {
+        "invocationId": "dkrm16qg2oe4necryvs1njo9d",
+        "startedOn": "2026-10-21T07:28:15.507580601Z",
+        "finishedOn": "2026-10-21T07:29:22.056668762Z",
+        "buildkit_metadata": {
+          "source": {
+            "locations": {
+              "step0": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 204
+                        },
+                        "end": {
+                          "line": 204
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step1": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 205
+                        },
+                        "end": {
+                          "line": 205
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step10": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 31
+                        },
+                        "end": {
+                          "line": 31
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step11": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 101
+                        },
+                        "end": {
+                          "line": 101
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 102
+                        },
+                        "end": {
+                          "line": 102
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 103
+                        },
+                        "end": {
+                          "line": 103
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 104
+                        },
+                        "end": {
+                          "line": 104
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 105
+                        },
+                        "end": {
+                          "line": 105
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 106
+                        },
+                        "end": {
+                          "line": 106
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 107
+                        },
+                        "end": {
+                          "line": 107
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 108
+                        },
+                        "end": {
+                          "line": 108
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step12": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 195
+                        },
+                        "end": {
+                          "line": 195
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step13": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 209
+                        },
+                        "end": {
+                          "line": 209
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 210
+                        },
+                        "end": {
+                          "line": 210
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 211
+                        },
+                        "end": {
+                          "line": 211
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 212
+                        },
+                        "end": {
+                          "line": 212
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 213
+                        },
+                        "end": {
+                          "line": 213
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 214
+                        },
+                        "end": {
+                          "line": 214
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step14": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 217
+                        },
+                        "end": {
+                          "line": 217
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step2": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 36
+                        },
+                        "end": {
+                          "line": 36
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step3": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 28
+                        },
+                        "end": {
+                          "line": 28
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step4": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 37
+                        },
+                        "end": {
+                          "line": 37
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step5": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 38
+                        },
+                        "end": {
+                          "line": 38
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 39
+                        },
+                        "end": {
+                          "line": 39
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 40
+                        },
+                        "end": {
+                          "line": 40
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 41
+                        },
+                        "end": {
+                          "line": 41
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 42
+                        },
+                        "end": {
+                          "line": 42
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 43
+                        },
+                        "end": {
+                          "line": 43
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 44
+                        },
+                        "end": {
+                          "line": 44
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 45
+                        },
+                        "end": {
+                          "line": 45
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 46
+                        },
+                        "end": {
+                          "line": 46
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step6": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 47
+                        },
+                        "end": {
+                          "line": 47
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step7": {},
+              "step8": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 51
+                        },
+                        "end": {
+                          "line": 51
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "step9": {
+                "locations": [
+                  {
+                    "ranges": [
+                      {
+                        "start": {
+                          "line": 52
+                        },
+                        "end": {
+                          "line": 52
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 53
+                        },
+                        "end": {
+                          "line": 53
+                        }
+                      },
+                      {
+                        "start": {
+                          "line": 54
+                        },
+                        "end": {
+                          "line": 54
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "infos": [
+              {
+                "filename": "Dockerfile",
+                "language": "Dockerfile",
+                "data": "IyBzeW50YXg9ZG9ja2VyL2RvY2tlcmZpbGU6MQoKCiMgICBDb3B5cmlnaHQgMjAyMCBEb2NrZXIgQ29tcG9zZSBDTEkgYXV0aG9ycwoKIyAgIExpY2Vuc2VkIHVuZGVyIHRoZSBBcGFjaGUgTGljZW5zZSwgVmVyc2lvbiAyLjAgKHRoZSAiTGljZW5zZSIpOwojICAgeW91IG1heSBub3QgdXNlIHRoaXMgZmlsZSBleGNlcHQgaW4gY29tcGxpYW5jZSB3aXRoIHRoZSBMaWNlbnNlLgojICAgWW91IG1heSBvYnRhaW4gYSBjb3B5IG9mIHRoZSBMaWNlbnNlIGF0CgojICAgICAgIGh0dHA6Ly93d3cuYXBhY2hlLm9yZy9saWNlbnNlcy9MSUNFTlNFLTIuMAoKIyAgIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmUKIyAgIGRpc3RyaWJ1dGVkIHVuZGVyIHRoZSBMaWNlbnNlIGlzIGRpc3RyaWJ1dGVkIG9uIGFuICJBUyBJUyIgQkFTSVMsCiMgICBXSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC4KIyAgIFNlZSB0aGUgTGljZW5zZSBmb3IgdGhlIHNwZWNpZmljIGxhbmd1YWdlIGdvdmVybmluZyBwZXJtaXNzaW9ucyBhbmQKIyAgIGxpbWl0YXRpb25zIHVuZGVyIHRoZSBMaWNlbnNlLgoKQVJHIEdPX1ZFUlNJT049MS4yNi4xMApBUkcgWFhfVkVSU0lPTj0xLjkuMApBUkcgR09MQU5HQ0lfTElOVF9WRVJTSU9OPXYyLjEzLjIKQVJHIEFERExJQ0VOU0VfVkVSU0lPTj12MS4wLjAKCkFSRyBCVUlMRF9UQUdTPSJlMmUiCkFSRyBET0NTX0ZPUk1BVFM9Im1kLHlhbWwiCkFSRyBMSUNFTlNFX0ZJTEVTPSIuKlwoRG9ja2VyZmlsZVx8TWFrZWZpbGVcfFwuZ29cfFwuaGNsXHxcLnNoXCkiCgojIHh4IGlzIGEgaGVscGVyIGZvciBjcm9zcy1jb21waWxhdGlvbgpGUk9NIC0tcGxhdGZvcm09JHtCVUlMRFBMQVRGT1JNfSB0b25pc3RpaWdpL3h4OiR7WFhfVkVSU0lPTn0gQVMgeHgKCiMgb3N4Y3Jvc3MgY29udGFpbnMgdGhlIE1hY09TWCBjcm9zcyB0b29sY2hhaW4gZm9yIHh4CkZST00gY3JhenltYXgvb3N4Y3Jvc3M6MTUuNS1hbHBpbmUgQVMgb3N4Y3Jvc3MKCkZST00gZ29sYW5nY2kvZ29sYW5nY2ktbGludDoke0dPTEFOR0NJX0xJTlRfVkVSU0lPTn0tYWxwaW5lIEFTIGdvbGFuZ2NpLWxpbnQKRlJPTSBnaGNyLmlvL2dvb2dsZS9hZGRsaWNlbnNlOiR7QURETElDRU5TRV9WRVJTSU9OfSBBUyBhZGRsaWNlbnNlCgpGUk9NIC0tcGxhdGZvcm09JHtCVUlMRFBMQVRGT1JNfSBnb2xhbmc6JHtHT19WRVJTSU9OfS1hbHBpbmUzLjIzIEFTIGJhc2UKQ09QWSAtLWZyb209eHggLyAvClJVTiBhcGsgYWRkIC0tbm8tY2FjaGUgXAogICAgICBjbGFuZyBcCiAgICAgIGRvY2tlciBcCiAgICAgIGZpbGUgXAogICAgICBmaW5kdXRpbHMgXAogICAgICBnaXQgXAogICAgICBtYWtlIFwKICAgICAgcHJvdG9jIFwKICAgICAgcHJvdG9idWYtZGV2CldPUktESVIgL3NyYwpFTlYgQ0dPX0VOQUJMRUQ9MAoKRlJPTSBiYXNlIEFTIGJ1aWxkLWJhc2UKQ09QWSBnby4qIC4KUlVOIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L2dvL3BrZy9tb2QgXAogICAgLS1tb3VudD10eXBlPWNhY2hlLHRhcmdldD0vcm9vdC8uY2FjaGUvZ28tYnVpbGQgXAogICAgZ28gbW9kIGRvd25sb2FkCgpGUk9NIGJ1aWxkLWJhc2UgQVMgdmVuZG9yZWQKUlVOIC0tbW91bnQ9dHlwZT1iaW5kLHRhcmdldD0uLHJ3IFwKICAgIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L2dvL3BrZy9tb2QgXAogICAgZ28gbW9kIHRpZHkgJiYgbWtkaXIgL291dCAmJiBjcCBnby5tb2QgZ28uc3VtIC9vdXQKCkZST00gc2NyYXRjaCBBUyB2ZW5kb3ItdXBkYXRlCkNPUFkgLS1mcm9tPXZlbmRvcmVkIC9vdXQgLwoKRlJPTSB2ZW5kb3JlZCBBUyB2ZW5kb3ItdmFsaWRhdGUKUlVOIC0tbW91bnQ9dHlwZT1iaW5kLHRhcmdldD0uLHJ3IDw8RU9UCiAgc2V0IC1lCiAgZ2l0IGFkZCAtQQogIGNwIC1yZiAvb3V0LyogLgogIGRpZmY9JChnaXQgc3RhdHVzIC0tcG9yY2VsYWluIC0tIGdvLm1vZCBnby5zdW0pCiAgaWYgWyAtbiAiJGRpZmYiIF07IHRoZW4KICAgIGVjaG8gPiYyICdFUlJPUjogVmVuZG9yIHJlc3VsdCBkaWZmZXJzLiBQbGVhc2UgdmVuZG9yIHlvdXIgcGFja2FnZSB3aXRoICJtYWtlIGdvLW1vZC10aWR5IicKICAgIGVjaG8gIiRkaWZmIgogICAgZXhpdCAxCiAgZmkKRU9UCgpGUk9NIGJ1aWxkLWJhc2UgQVMgbW9ja3MtZ2VuZXJhdGUKUlVOIC0tbW91bnQ9dHlwZT1iaW5kLHRhcmdldD0uLHJ3IFwKICAgIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L2dvL3BrZy9tb2QgXAogICAgLS1tb3VudD10eXBlPWNhY2hlLHRhcmdldD0vcm9vdC8uY2FjaGUvZ28tYnVpbGQgXAogICAgbWFrZSBtb2NrcyAmJiBta2RpciAvb3V0ICYmIGNwIHBrZy9tb2Nrcy8qLmdvIC9vdXQKCkZST00gbW9ja3MtZ2VuZXJhdGUgQVMgbW9ja3MtdmFsaWRhdGUKUlVOIC0tbW91bnQ9dHlwZT1iaW5kLHRhcmdldD0uLHJ3IDw8RU9UCiAgc2V0IC1lCiAgZ2l0IGFkZCAtQQogIGNwIC1mIC9vdXQvKiBwa2cvbW9ja3MvCiAgZGlmZj0kKGdpdCBzdGF0dXMgLS1wb3JjZWxhaW4gLS0gcGtnL21vY2tzKQogIGlmIFsgLW4gIiRkaWZmIiBdOyB0aGVuCiAgICBlY2hvID4mMiAnRVJST1I6IEdlbmVyYXRlZCBtb2NrcyBkaWZmZXIuIFBsZWFzZSByZWdlbmVyYXRlIHRoZW0gd2l0aCAibWFrZSBtb2NrcyInCiAgICBlY2hvICIkZGlmZiIKICAgIGV4aXQgMQogIGZpCkVPVAoKRlJPTSBidWlsZC1iYXNlIEFTIGJ1aWxkCkFSRyBCVUlMRF9UQUdTCkFSRyBCVUlMRF9GTEFHUwpBUkcgVEFSR0VUUExBVEZPUk0KQVJHIE1BQ09TWF9WRVJTSU9OX01JTj0xMS4wClJVTiAtLW1vdW50PXR5cGU9YmluZCx0YXJnZXQ9LiBcCiAgICAtLW1vdW50PXR5cGU9Y2FjaGUsdGFyZ2V0PS9yb290Ly5jYWNoZSBcCiAgICAtLW1vdW50PXR5cGU9Y2FjaGUsdGFyZ2V0PS9nby9wa2cvbW9kIFwKICAgIC0tbW91bnQ9dHlwZT1iaW5kLGZyb209b3N4Y3Jvc3Msc3JjPS9vc3hzZGssdGFyZ2V0PS94eC1zZGsgXAogICAgeHgtZ28gLS13cmFwICYmIFwKICAgIGlmIFsgIiQoeHgtaW5mbyBvcykiID09ICJkYXJ3aW4iIF07IHRoZW4gZXhwb3J0IENHT19FTkFCTEVEPTE7IGV4cG9ydCBCVUlMRF9UQUdTPWZzbm90aWZ5LCRCVUlMRF9UQUdTOyBmaSAmJiBcCiAgICBtYWtlIGJ1aWxkIEdPX0JVSUxEVEFHUz0iJEJVSUxEX1RBR1MiIERFU1RESVI9L291dCAmJiBcCiAgICB4eC12ZXJpZnkgLS1zdGF0aWMgL291dC9kb2NrZXItY29tcG9zZQoKRlJPTSBidWlsZC1iYXNlIEFTIGxpbnQKQVJHIEJVSUxEX1RBR1MKRU5WIEdPTEFOR0NJX0xJTlRfQ0FDSEU9L2NhY2hlL2dvbGFuZ2NpLWxpbnQKUlVOIC0tbW91bnQ9dHlwZT1iaW5kLHRhcmdldD0uIFwKICAgIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L3Jvb3QvLmNhY2hlIFwKICAgIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L2dvL3BrZy9tb2QgXAogICAgLS1tb3VudD10eXBlPWNhY2hlLHRhcmdldD0vY2FjaGUvZ29sYW5nY2ktbGludCBcCiAgICAtLW1vdW50PWZyb209Z29sYW5nY2ktbGludCxzb3VyY2U9L3Vzci9iaW4vZ29sYW5nY2ktbGludCx0YXJnZXQ9L3Vzci9iaW4vZ29sYW5nY2ktbGludCBcCiAgICBnb2xhbmdjaS1saW50IGNhY2hlIHN0YXR1cyAmJiBcCiAgICBnb2xhbmdjaS1saW50IHJ1biAtLWJ1aWxkLXRhZ3MgIiRCVUlMRF9UQUdTIiAuLy4uLgoKRlJPTSBidWlsZC1iYXNlIEFTIHRlc3QKQVJHIENHT19FTkFCTEVEPTAKQVJHIEJVSUxEX1RBR1MKUlVOIC0tbW91bnQ9dHlwZT1iaW5kLHRhcmdldD0uIFwKICAgIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L3Jvb3QvLmNhY2hlIFwKICAgIC0tbW91bnQ9dHlwZT1jYWNoZSx0YXJnZXQ9L2dvL3BrZy9tb2QgXAogICAgcm0gLXJmIC90bXAvY292ZXJhZ2UgJiYgXAogICAgbWtkaXIgLXAgL3RtcC9jb3ZlcmFnZSAmJiBcCiAgICBybSAtcmYgL3RtcC9yZXBvcnQgJiYgXAogICAgbWtkaXIgLXAgL3RtcC9yZXBvcnQgJiYgXAogICAgZ28gcnVuIGdvdGVzdC50b29scy9nb3Rlc3RzdW1AbGF0ZXN0IC0tZm9ybWF0IHRlc3RuYW1lIC0tanVuaXRmaWxlICIvdG1wL3JlcG9ydC9yZXBvcnQueG1sIiAtLSAtdGFncyAiJEJVSUxEX1RBR1MiIC12IC1jb3ZlciAtY292ZXJtb2RlPWF0b21pYyAkKGdvIGxpc3QgICQoVEFHUykgLi8uLi4gfCBncmVwIC12RSAnZTJlJykgLWFyZ3MgLXRlc3QuZ29jb3ZlcmRpcj0iL3RtcC9jb3ZlcmFnZSIgJiYgXAogICAgZ28gdG9vbCBjb3ZkYXRhIHBlcmNlbnQgLWk9L3RtcC9jb3ZlcmFnZQoKRlJPTSBzY3JhdGNoIEFTIHRlc3QtY292ZXJhZ2UKQ09QWSAtLWZyb209dGVzdCAtLWxpbmsgL3RtcC9jb3ZlcmFnZSAvCkNPUFkgLS1mcm9tPXRlc3QgLS1saW5rIC90bXAvcmVwb3J0IC8KCkZST00gYmFzZSBBUyBsaWNlbnNlLXNldApBUkcgTElDRU5TRV9GSUxFUwpSVU4gLS1tb3VudD10eXBlPWJpbmQsdGFyZ2V0PS4scncgXAogICAgLS1tb3VudD1mcm9tPWFkZGxpY2Vuc2Usc291cmNlPS9hcHAvYWRkbGljZW5zZSx0YXJnZXQ9L3Vzci9iaW4vYWRkbGljZW5zZSBcCiAgICBmaW5kIC4gLXJlZ2V4ICIke0xJQ0VOU0VfRklMRVN9IiB8IHhhcmdzIGFkZGxpY2Vuc2UgLWMgJ0RvY2tlciBDb21wb3NlIENMSScgLWwgYXBhY2hlIC1pZ25vcmUgdmFsaWRhdGUgLWlnbm9yZSB0ZXN0ZGF0YSAtaWdub3JlICcqKi90ZXN0ZGF0YS8qKicgLWlnbm9yZSByZXNvbHZlcGF0aCAmJiBcCiAgICBta2RpciAvb3V0ICYmIFwKICAgIGZpbmQgLiAtcmVnZXggIiR7TElDRU5TRV9GSUxFU30iIHwgY3BpbyAtcGRtIC9vdXQKCkZST00gc2NyYXRjaCBBUyBsaWNlbnNlLXVwZGF0ZQpDT1BZIC0tZnJvbT1zZXQgL291dCAvCgpGUk9NIGJhc2UgQVMgbGljZW5zZS12YWxpZGF0ZQpBUkcgTElDRU5TRV9GSUxFUwpSVU4gLS1tb3VudD10eXBlPWJpbmQsdGFyZ2V0PS4gXAogICAgLS1tb3VudD1mcm9tPWFkZGxpY2Vuc2Usc291cmNlPS9hcHAvYWRkbGljZW5zZSx0YXJnZXQ9L3Vzci9iaW4vYWRkbGljZW5zZSBcCiAgICBmaW5kIC4gLXJlZ2V4ICIke0xJQ0VOU0VfRklMRVN9IiB8IHhhcmdzIGFkZGxpY2Vuc2UgLWNoZWNrIC1jICdEb2NrZXIgQ29tcG9zZSBDTEknIC1sIGFwYWNoZSAtaWdub3JlIHZhbGlkYXRlIC1pZ25vcmUgdGVzdGRhdGEgLWlnbm9yZSAnKiovdGVzdGRhdGEvKionIC1pZ25vcmUgcmVzb2x2ZXBhdGggLXYKCkZST00gYmFzZSBBUyBkb2NzZ2VuCldPUktESVIgL3NyYwpSVU4gLS1tb3VudD10YXJnZXQ9LiBcCiAgICAtLW1vdW50PXRhcmdldD0vcm9vdC8uY2FjaGUsdHlwZT1jYWNoZSBcCiAgICAtLW1vdW50PXR5cGU9Y2FjaGUsdGFyZ2V0PS9nby9wa2cvbW9kIFwKICAgIGdvIGJ1aWxkIC1vIC9vdXQvZG9jc2dlbiAuL2RvY3MveWFtbC9tYWluL2dlbmVyYXRlLmdvCgpGUk9NIC0tcGxhdGZvcm09JHtCVUlMRFBMQVRGT1JNfSBhbHBpbmUgQVMgZG9jcy1idWlsZApSVU4gYXBrIGFkZCAtLW5vLWNhY2hlIHJzeW5jIGdpdApXT1JLRElSIC9zcmMKQ09QWSAtLWZyb209ZG9jc2dlbiAvb3V0L2RvY3NnZW4gL3Vzci9iaW4KQVJHIERPQ1NfRk9STUFUUwpSVU4gLS1tb3VudD10YXJnZXQ9L2NvbnRleHQgXAogICAgLS1tb3VudD10YXJnZXQ9Lix0eXBlPXRtcGZzIDw8RU9UCiAgc2V0IC1lCiAgcnN5bmMgLWEgL2NvbnRleHQvLiAuCiAgZG9jc2dlbiAtLWZvcm1hdHMgIiRET0NTX0ZPUk1BVFMiIC0tc291cmNlICJkb2NzL3JlZmVyZW5jZSIKICBta2RpciAvb3V0CiAgY3AgLXIgZG9jcy9yZWZlcmVuY2UgL291dApFT1QKCkZST00gc2NyYXRjaCBBUyBkb2NzLXVwZGF0ZQpDT1BZIC0tZnJvbT1kb2NzLWJ1aWxkIC9vdXQgL291dAoKRlJPTSBkb2NzLWJ1aWxkIEFTIGRvY3MtdmFsaWRhdGUKUlVOIC0tbW91bnQ9dGFyZ2V0PS9jb250ZXh0IFwKICAgIC0tbW91bnQ9dGFyZ2V0PS4sdHlwZT10bXBmcyA8PEVPVAogIHNldCAtZQogIHJzeW5jIC1hIC9jb250ZXh0Ly4gLgogIGdpdCBhZGQgLUEKICBybSAtcmYgZG9jcy9yZWZlcmVuY2UvKgogIGNwIC1yZiAvb3V0LyogLi9kb2NzLwogIGlmIFsgLW4gIiQoZ2l0IHN0YXR1cyAtLXBvcmNlbGFpbiAtLSBkb2NzL3JlZmVyZW5jZSkiIF07IHRoZW4KICAgIGVjaG8gPiYyICdFUlJPUjogRG9jcyByZXN1bHQgZGlmZmVycy4gUGxlYXNlIHVwZGF0ZSB3aXRoICJtYWtlIGRvY3MiJwogICAgZ2l0IHN0YXR1cyAtLXBvcmNlbGFpbiAtLSBkb2NzL3JlZmVyZW5jZQogICAgZXhpdCAxCiAgZmkKRU9UCgpGUk9NIHNjcmF0Y2ggQVMgYmluYXJ5LXVuaXgKQ09QWSAtLWxpbmsgLS1mcm9tPWJ1aWxkIC9vdXQvZG9ja2VyLWNvbXBvc2UgLwpGUk9NIGJpbmFyeS11bml4IEFTIGJpbmFyeS1kYXJ3aW4KRlJPTSBiaW5hcnktdW5peCBBUyBiaW5hcnktbGludXgKRlJPTSBzY3JhdGNoIEFTIGJpbmFyeS13aW5kb3dzCkNPUFkgLS1saW5rIC0tZnJvbT1idWlsZCAvb3V0L2RvY2tlci1jb21wb3NlIC9kb2NrZXItY29tcG9zZS5leGUKRlJPTSBiaW5hcnktJFRBUkdFVE9TIEFTIGJpbmFyeQojIGVuYWJsZSBzY2FubmluZyBmb3IgdGhpcyBzdGFnZQpBUkcgQlVJTERLSVRfU0JPTV9TQ0FOX1NUQUdFPXRydWUKCkZST00gLS1wbGF0Zm9ybT0kQlVJTERQTEFURk9STSBhbHBpbmUgQVMgcmVsZWFzZXIKV09SS0RJUiAvd29yawpBUkcgVEFSR0VUT1MKQVJHIFRBUkdFVEFSQ0gKQVJHIFRBUkdFVFZBUklBTlQKUlVOIC0tbW91bnQ9ZnJvbT1iaW5hcnkgXAogICAgbWtkaXIgLXAgL291dCAmJiBcCiAgICAjIFRPRE86IHNob3VsZCBqdXN0IHVzZSBzdGFuZGFyZCBhcmNoCiAgICBUQVJHRVRBUkNIPSQoWyAiJFRBUkdFVEFSQ0giID0gImFtZDY0IiBdICYmIGVjaG8gIng4Nl82NCIgfHwgZWNobyAiJFRBUkdFVEFSQ0giKTsgXAogICAgVEFSR0VUQVJDSD0kKFsgIiRUQVJHRVRBUkNIIiA9ICJhcm02NCIgXSAmJiBlY2hvICJhYXJjaDY0IiB8fCBlY2hvICIkVEFSR0VUQVJDSCIpOyBcCiAgICBjcCBkb2NrZXItY29tcG9zZSogIi9vdXQvZG9ja2VyLWNvbXBvc2UtJHtUQVJHRVRPU30tJHtUQVJHRVRBUkNIfSR7VEFSR0VUVkFSSUFOVH0kKGxzIGRvY2tlci1jb21wb3NlKiB8IHNlZCAtZSAncy9eZG9ja2VyLWNvbXBvc2UvLycpIgoKRlJPTSBzY3JhdGNoIEFTIHJlbGVhc2UKQ09QWSAtLWZyb209cmVsZWFzZXIgL291dC8gLwoKRlJPTSAtLXBsYXRmb3JtPSRCVUlMRFBMQVRGT1JNIGFscGluZSBBUyBtb2R1bGUtcmVsZWFzZXIKV09SS0RJUiAvd29yawpBUkcgVEFSR0VUT1MKUlVOIC0tbW91bnQ9ZnJvbT1iaW5hcnkgXAogICAgbWtkaXIgLXAgL2NsaS1wbHVnaW5zL2NvbXBvc2UvJFRBUkdFVE9TICYmIFwKICAgIGNwIGRvY2tlci1jb21wb3NlKiAiL2NsaS1wbHVnaW5zL2NvbXBvc2UvJFRBUkdFVE9TL2RvY2tlci1jb21wb3NlJChscyBkb2NrZXItY29tcG9zZSogfCBzZWQgLWUgJ3MvXmRvY2tlci1jb21wb3NlLy8nKSIKCkZST00gc2NyYXRjaCBBUyBtb2R1bGUKQVJHIFRBUkdFVE9TCkNPUFkgLS1mcm9tPW1vZHVsZS1yZWxlYXNlciAvY2xpLXBsdWdpbnMvY29tcG9zZS8kVEFSR0VUT1MgL2NsaS1wbHVnaW5zL2NvbXBvc2UvJFRBUkdFVE9TCkNPUFkgLi9kZXNrdG9wLW1vZHVsZS9tb2R1bGUtbWV0YWRhdGEuanNvbiAvCkNPUFkgTElDRU5TRSAvCg==",
+                "llbDefinition": [
+                  {
+                    "id": "step0",
+                    "op": {
+                      "Op": {
+                        "source": {
+                          "identifier": "git://github.com/docker/compose.git#refs/tags/v5.6.1",
+                          "attrs": {
+                            "git.authheadersecret": "GIT_AUTH_HEADER",
+                            "git.authtokensecret": "GIT_AUTH_TOKEN",
+                            "git.checksum": "6cbc19a3fd59e305fb814dca4d854a4fb67d2941",
+                            "git.fullurl": "https://github.com/docker/compose.git",
+                            "git.keepgitdir": "true"
+                          }
+                        }
+                      },
+                      "constraints": {}
+                    }
+                  },
+                  {
+                    "id": "step1",
+                    "op": {
+                      "Op": {}
+                    },
+                    "inputs": [
+                      "step0:0"
+                    ]
+                  }
+                ],
+                "digestMapping": {
+                  "sha256:0650ad6746020eb0c679b76e7e01a5358835712cb7faeb0cb4bf4226f41b1764": "step1",
+                  "sha256:42f3351c8b2a289fd65cae27d9d98a332e282718a5c809453a564f9bccde4757": "step0"
+                }
+              }
+            ]
+          },
+          "layers": {
+            "step0:0": [
+              [
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:e2de96513ba9eb53b431787ec8a65cdde380ac4772a3e4c4b714dcfde2a102b5",
+                  "size": 3849738
+                }
+              ]
+            ],
+            "step10:0": [
+              [
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:adb2bec47b8e3371af821ca3211bdd3f59a07cf17d0ad30ba2ecc7222be67980",
+                  "size": 231895442
+                }
+              ]
+            ],
+            "step2:0": [
+              [
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:d0c1d894c237d8192cbcd37e435031ad4eddec173299568a5a05869c2e40dfa3",
+                  "size": 3848507
+                },
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:e0a614eb1e2e094d04f4f559ff8612de03b61e7f4d6ac11327461eadc89b7fe0",
+                  "size": 247512
+                },
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:f64d732997a02e45cca29ef334d56f89f7599c8937c2617b6467edd19bc037d6",
+                  "size": 67351922
+                },
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:ba2ae1b6281fe876c54585b2c8e3d66e00bc7069e0489dd387a947ccc3cae821",
+                  "size": 126
+                },
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+                  "size": 32
+                }
+              ]
+            ],
+            "step3:0": [
+              [
+                {
+                  "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+                  "digest": "sha256:ff62ee5b594035d8ad03d05aadc05e2a73f7e0e11bf2574dc5473677a60e22b4",
+                  "size": 17700
+                }
+              ]
+            ]
+          }
+        },
+        "buildkit_completeness": {
+          "request": true,
+          "resolvedDependencies": true
+        }
+      }
+    }
+  }
+}
