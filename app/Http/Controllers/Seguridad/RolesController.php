@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Seguridad;
 
 use App\Http\Controllers\Controller;
-use App\Http\Managers\Seguridad\RolesManager;
+use App\Http\Requests\StorePruebaRequest;
+use App\Http\Requests\UpdatePruebaRequest;
+use App\Models\Prueba;
 use App\Models\Seguridad\Roles;
+use App\Models\Seguridad\TiposSesion;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller
@@ -12,52 +15,76 @@ class RolesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $rolesManager = new RolesManager($request);
-        $tiposSesion = $rolesManager->obtenerGuard();
-        return view('seguridad.roles.index', compact('tiposSesion'));
+        $roles = Roles::all();
+        $tipoSesiones = TiposSesion::all();
+        return view('seguridad.roles.index', compact('roles','tipoSesiones'));
     }
-    public function buscar(Request $request)
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        if ($request->ajax()) {
-            $roles = new RolesManager($request);
-            $resultado = $roles->buscarTodos();
-            return response()->json(['data' => $resultado ?? []]);
-        }
+        $tipoSesiones = TiposSesion::all();
+        return view('seguridad.roles.create',compact('tipoSesiones'));
     }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         Roles::create($request->all());
-        return redirect('seguridad/roles');
+
+        return redirect()->route('seguridad.roles.index')->with('success', 'El rol se registró correctamente.');
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Roles $role)
+    {
+        return view('seguridad.roles.show', ['rol' => $role]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(int $role)
+    {
+        $roles = Roles::find($role);
+        $tipoSesiones = TiposSesion::all();
+        return view('seguridad.roles.edit', compact('roles','tipoSesiones'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Roles $role)
+    public function update(Request $request,Roles $role)
     {
-        $role->update($request->all());
-        return redirect('seguridad/roles');
+        $role->update(
+            $request->only([
+                'name',
+                'guard_name'
+            ])
+        );
+
+        return redirect()
+            ->route('seguridad.roles.index')
+            ->with('success', 'Rol actualizado correctamente.');
     }
-    public function eliminar(Roles $role)
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Roles $role)
     {
-        $roles = new RolesManager($role);
-        $roles->eliminarRol();
-        return redirect('security/roles');
-    }
-    public function activarInactivar(Roles $role)
-    {
-        $roles = new RolesManager($role);
-        $roles->activarInactivarRol();
-        return redirect('security/roles');
-    }
-    public function verRoles(Roles $role)
-    {
-        $roles = new RolesManager($role);
-        $roles->cambiarVisibilidad();
-        return redirect('seguridad/roles');
+        $role->delete();
+
+        return redirect()
+            ->route('seguridad.roles.index')
+            ->with('success', 'El rol se eliminó correctamente.');
     }
 }

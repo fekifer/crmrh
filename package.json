@@ -29,6 +29,7 @@
         "rimraf": "^5.0.5",
         "rtlcss": "^4.1.0",
         "sass-loader": "^13.2.2",
+        "sweetalert2": "^11.26.25",
         "vite-plugin-static-copy": "^0.14.0"
     }
 }

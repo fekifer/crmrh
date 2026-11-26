@@ -1,401 +1,336 @@
 
-document.addEventListener('DOMContentLoaded', async function () {
+document.addEventListener('DOMContentLoaded', function () {
 
     // ==========================================
-    // 1. ELEMENTOS DEL BLADE
+    // 1. INICIALIZAR GRID.JS
     // ==========================================
-    const contenedor = document.getElementById('gridRoles');
-    const buscador = document.getElementById('searchResultList');
 
-    const modalElemento = document.getElementById('AgregarRolModal');
-    const formulario = document.getElementById('formAgregarRol');
-    const inputNombre = document.getElementById('name');
-    const selectGuard = document.getElementById('guard_name');
-    const tituloModal = document.getElementById('AgregarRolModalLabel');
-    const botonGuardar = document.getElementById('guardar');
-
-    const botonNuevo = document.querySelector(
-        '[data-bs-target="#AgregarRolModal"]'
-    );
+    const contenedor = document.getElementById('tabla-roles');
 
     if (!contenedor) {
-        console.error('No existe el contenedor gridRoles');
+        console.error('No existe el contenedor tabla-roles');
         return;
     }
 
-    if (typeof gridjs === 'undefined') {
-        console.error('La librería Grid.js no está cargada');
-        return;
-    }
+    // Obtener registros enviados desde Eloquent
+    const roles = JSON.parse(contenedor.dataset.roles || '[]');
+    const rutaMostrar = contenedor.dataset.rutaMostrar;
+    const rutaEditar = contenedor.dataset.rutaEditar;
+    const rutaEliminar = contenedor.dataset.rutaEliminar;
+    // Preparar los registros para Grid.js
+    const registros = roles.map(rol => [
+        rol.id,
+        rol.name,
+        rol.id
+    ]);
 
-    const urlAjax = contenedor.dataset.url;
+    // Limpiar contenedor de Grid.js
+    contenedor.replaceChildren();
 
-    // Guardar la URL original del formulario
-    const urlCrear = formulario?.action || '';
-
-    let grid = null;
-    let rolesOriginales = [];
-
-    // ==========================================
-    // 2. CONSULTAR ROLES
-    // ==========================================
-    async function obtenerRoles() {
-
-        const respuesta = await fetch(urlAjax, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
+    // Crear Grid.js
+    new gridjs.Grid({
+        columns: [
+            {
+                name: 'ID',
+                width: '100px'
             },
-            credentials: 'same-origin'
-        });
+            {
+                name: 'Rol'
+            },
 
-        if (!respuesta.ok) {
-            throw new Error(`Error HTTP ${respuesta.status}`);
-        }
+            {
+                name: 'Acciones',
+                width: '150px',
+                sort: false,
 
-        const texto = await respuesta.text();
+                formatter: (id) => {
 
-        if (!texto.trim()) {
-            return [];
-        }
+                    // ==================================
+                    // ENLACE EDITAR
+                    // ==================================
 
-        const resultado = JSON.parse(texto);
+                    const urlEditar = rutaEditar.replace('__ID__', encodeURIComponent(id));
 
-        if (Array.isArray(resultado)) {
-            return resultado;
-        }
+                    const editar = document.createElement('a');
 
-        if (Array.isArray(resultado?.data)) {
-            return resultado.data;
-        }
+                    editar.href = urlEditar;
+                    editar.className = 'bi bi-pencil-fill editar-rol me-3';
+                    editar.title = 'Editar rol';
+                    editar.setAttribute('aria-label', 'Editar rol');
 
-        if (Array.isArray(resultado?.data?.data)) {
-            return resultado.data.data;
-        }
 
-        if (Array.isArray(resultado?.data?.original?.data)) {
-            return resultado.data.original.data;
-        }
+                    // ==========================================
+                    // ENLACE MOSTRAR DETALLE
+                    // ==========================================
 
-        if (resultado?.data == null) {
-            return [];
-        }
+                    const urlMostrar = rutaMostrar.replace('__ID__', encodeURIComponent(id));
 
-        throw new Error(
-            'La estructura de respuesta de RolesManager no es válida'
-        );
-    }
+                    const mostrar = document.createElement('a');
 
-    // ==========================================
-    // 3. CREAR GRID.JS
-    // ==========================================
-    function crearGrid(roles = []) {
+                    mostrar.href = urlMostrar;
+                    mostrar.className = 'bi bi-eye-fill mostrar-rol me-3';
+                    mostrar.title = 'Ver detalle del rol';
+                    mostrar.setAttribute('aria-label', 'Ver detalle del rol');
 
-        grid = new gridjs.Grid({
-            columns: [
-                {
-                    id: 'id',
-                    name: 'Número de Rol',
-                    width: '150px',
-                    sort: true
-                },
-                {
-                    id: 'name',
-                    name: 'Nombre del Rol',
-                    sort: true
-                },
-                {
-                    id: 'guard_name',
-                    name: 'Tipo de Sesión',
-                    sort: true,
-                    formatter: (cell) => {
-                        return cell ?? 'Sin asignar';
-                    }
-                },
-                {
-                    id: 'status',
-                    name: 'Estado',
-                    width: '160px',
-                    sort: true,
-                    formatter: (cell) => {
-                        return Number(cell) === 1
-                            ? gridjs.html(
-                                '<span class="badge bg-success">Activo</span>'
-                            )
-                            : gridjs.html(
-                                '<span class="badge bg-danger">Inactivo</span>'
-                            );
-                    }
-                },
-                {
-                    id: 'action',
-                    name: 'Acciones',
-                    width: '130px',
-                    sort: false,
-                    formatter: (cell) => {
-                        // Usar solamente HTML generado
-                        // de forma confiable en el backend
-                        return gridjs.html(cell || '');
-                    }
+
+                    // ==================================
+                    // ENLACE ELIMINAR
+                    // ==================================
+
+                    const urlEliminar = rutaEliminar.replace('__ID__', encodeURIComponent(id));
+
+                    const eliminar = document.createElement('a');
+
+                    eliminar.href = urlEliminar;
+                    eliminar.className = 'bi bi-trash3-fill eliminar-rol text-danger';
+                    eliminar.dataset.id = String(id);
+                    eliminar.title = 'Eliminar rol';
+                    eliminar.setAttribute('aria-label', 'Eliminar rol');
+
+
+                    // ==================================
+                    // MOSTRAR AMBOS ENLACES
+                    // ==================================
+
+                    return gridjs.html(
+                        mostrar.outerHTML + editar.outerHTML + eliminar.outerHTML
+                    );
                 }
-            ],
+            }
+        ],
 
-            data: roles,
+        data: registros,
 
-            search: false,
-            sort: true,
+        search: true,
+        sort: true,
 
+        pagination: {
+            enabled: true,
+            limit: 10
+        },
+
+        language: {
+            search: {
+                placeholder: 'Buscar rol...'
+            },
             pagination: {
-                enabled: true,
-                limit: 10
+                previous: 'Anterior',
+                next: 'Siguiente'
             },
+            noRecordsFound: 'No se encontraron registros'
+        }
 
-            language: {
-                noRecordsFound: 'No hay roles registrados',
-                pagination: {
-                    previous: 'Anterior',
-                    next: 'Siguiente',
-                    showing: 'Mostrando',
-                    to: 'a',
-                    of: 'de',
-                    results: () => 'registros'
-                }
-            }
-        });
+    }).render(contenedor);
 
-        grid.render(contenedor);
+
+    // ==========================================
+    // 2. MODAL DE CREACIÓN
+    // ==========================================
+
+    const configuracion = document.getElementById('configuracionRol');
+
+    if (configuracion?.dataset.abrirModal === '1') {
+
+        const elemento = document.getElementById('AgregarRolModal');
+
+        if (elemento) {
+            bootstrap.Modal.getOrCreateInstance(elemento).show();
+        }
     }
 
     // ==========================================
-    // 4. ACTUALIZAR GRID
+    // 3. MODAL DE EDICIÓN
     // ==========================================
-    function actualizarGrid(roles) {
 
-        if (!grid) {
-            crearGrid(roles);
+    const contenedorEditar = document.getElementById(
+        'contenedor-modal-editar'
+    );
+
+    contenedor.addEventListener('click', async function (evento) {
+
+        const enlace = evento.target.closest('.editar-rol');
+
+        if (!enlace) return;
+
+        // Evitar navegar a otra página
+        evento.preventDefault();
+
+        if (!contenedorEditar) {
+            console.error('No existe contenedor-modal-editar');
             return;
         }
-
-        grid.updateConfig({
-            data: roles
-        }).forceRender();
-    }
-
-    // ==========================================
-    // 5. FILTRAR ROLES
-    // ==========================================
-    function filtrarRoles() {
-
-        const texto = buscador
-            ? buscador.value.trim().toLowerCase()
-            : '';
-
-        const rolesFiltrados = rolesOriginales.filter(rol =>
-            String(rol.name ?? '')
-                .toLowerCase()
-                .includes(texto)
-        );
-
-        actualizarGrid(rolesFiltrados);
-    }
-
-    // ==========================================
-    // 6. CONFIGURAR FORMULARIO
-    // ==========================================
-    function configurarMetodoFormulario(metodo) {
-
-        if (!formulario) {
-            return;
-        }
-
-        // Laravel utiliza POST con _method=PUT
-        // para actualizar registros.
-        let campoMetodo = formulario.querySelector(
-            'input[name="_method"]'
-        );
-
-        if (metodo === 'PUT') {
-
-            if (!campoMetodo) {
-                campoMetodo = document.createElement('input');
-                campoMetodo.type = 'hidden';
-                campoMetodo.name = '_method';
-                formulario.appendChild(campoMetodo);
-            }
-
-            campoMetodo.value = 'PUT';
-
-        } else {
-
-            if (campoMetodo) {
-                campoMetodo.remove();
-            }
-        }
-
-        formulario.method = 'POST';
-    }
-
-    // ==========================================
-    // 7. PREPARAR MODAL PARA CREAR
-    // ==========================================
-    function prepararNuevoRol() {
-
-        if (!formulario) {
-            return;
-        }
-
-        formulario.reset();
-
-        formulario.action = urlCrear;
-
-        configurarMetodoFormulario('POST');
-
-        if (tituloModal) {
-            tituloModal.textContent = 'Nuevo Rol';
-        }
-
-        if (botonGuardar) {
-            botonGuardar.textContent = 'Agregar Rol';
-        }
-
-        formulario.classList.remove('was-validated');
-    }
-
-    // ==========================================
-    // 8. PREPARAR MODAL PARA EDITAR
-    // ==========================================
-    function editarRol(idRol) {
-
-        const rol = rolesOriginales.find(
-            item => String(item.id) === String(idRol)
-        );
-
-        if (!rol) {
-            console.error('No se encontró el rol:', idRol);
-            return;
-        }
-
-        if (!formulario || !modalElemento) {
-            console.error('No se encontró el formulario o modal');
-            return;
-        }
-
-        // Limpiar valores anteriores
-        formulario.reset();
-
-        // URL de actualización
-        const urlActualizar = formulario.dataset.updateUrl;
-
-        formulario.action = urlActualizar.replace('__ROLE_ID__', encodeURIComponent(rol.id));
-
-        configurarMetodoFormulario('PUT');
-
-        // Colocar información del rol
-        if (inputNombre) {
-            inputNombre.value = rol.name ?? '';
-        }
-        if(selectGuard){
-            selectGuard.value = rol.guard_name ?? '';
-        }
-        if (tituloModal) {
-            tituloModal.textContent = 'Editar Rol';
-        }
-
-        if (botonGuardar) {
-            botonGuardar.textContent = 'Guardar Cambios';
-        }
-
-        formulario.classList.remove('was-validated');
-
-        // Abrir modal Bootstrap
-        if (typeof bootstrap !== 'undefined') {
-            const modal = bootstrap.Modal.getOrCreateInstance(
-                modalElemento
-            );
-
-            modal.show();
-        } else {
-            console.error('Bootstrap Modal no está disponible');
-        }
-    }
-
-    // ==========================================
-    // 9. EVENTOS DE ACCIONES
-    // ==========================================
-
-    // Delegación de eventos:
-    // funciona aunque Grid.js regenere las filas
-    contenedor.addEventListener('click', function (event) {
-
-        const botonEditar = event.target.closest(
-            '.btn-editar-rol'
-        );
-
-        if (!botonEditar) {
-            return;
-        }
-
-        event.preventDefault();
-
-        const idRol = botonEditar.dataset.id;
-
-        editarRol(idRol);
-    });
-
-    // Preparar modal para registrar un rol nuevo
-    if (botonNuevo) {
-        botonNuevo.addEventListener('click', function () {
-            prepararNuevoRol();
-        });
-    }
-
-    // Buscar mientras el usuario escribe
-    if (buscador) {
-        buscador.addEventListener('input', filtrarRoles);
-    }
-
-    // ==========================================
-    // 10. CARGAR ROLES
-    // ==========================================
-    async function cargarRoles() {
 
         try {
 
-            contenedor.setAttribute('aria-busy', 'true');
+            // Ejecutar RolesController@edit
+            const respuesta = await fetch(enlace.href);
 
-            const roles = await obtenerRoles();
-
-            rolesOriginales = roles;
-
-            filtrarRoles();
-
-        } catch (error) {
-
-            console.error('Error al cargar roles:', error);
-
-            if (!grid) {
-                const mensaje = document.createElement('div');
-
-                mensaje.className = 'alert alert-danger';
-                mensaje.textContent =
-                    'No fue posible cargar el catálogo de roles.';
-
-                contenedor.replaceChildren(mensaje);
+            if (!respuesta.ok) {
+                throw new Error(`Error HTTP: ${respuesta.status}`);
             }
 
-        } finally {
+            // Recibir el HTML de edit.blade.php
+            contenedorEditar.innerHTML = await respuesta.text();
 
-            contenedor.removeAttribute('aria-busy');
+            // Abrir modal Bootstrap
+            const elemento = contenedorEditar.querySelector('#EditarRolModal');
+
+            if (!elemento) {
+                throw new Error('No se encontró EditarRolModal');
+            }
+
+            const modal = bootstrap.Modal.getOrCreateInstance(elemento);
+
+            // Limpiar el modal cuando se cierre
+            elemento.addEventListener('hidden.bs.modal', function () {
+                modal.dispose();
+                contenedorEditar.replaceChildren();
+            }, { once: true });
+
+            modal.show();
+
+        } catch (error) {
+            console.error('Error al cargar el formulario:', error);
+            alert('No fue posible abrir el formulario de edición.');
         }
+
+    });
+
+
+    // ==========================================
+    // 4. ELIMINAR ROL
+    // ==========================================
+
+    const formularioEliminar = document.getElementById(
+        'formEliminarRol'
+    );
+
+    if (!formularioEliminar) {
+        console.error('No existe el formulario formEliminarRol');
+        return;
     }
 
-    // ==========================================
-    // 11. INICIALIZACIÓN
-    // ==========================================
-    await cargarRoles();
+    // Capturar clic en el icono Eliminar de Grid.js
+    contenedor.addEventListener('click', async function (evento) {
 
-    // Permite recargar el grid desde otros scripts
-    window.recargarGridRoles = cargarRoles;
+        const enlace = evento.target.closest('.eliminar-rol');
+
+        if (!enlace) return;
+
+        // Evitar la navegación GET de la etiqueta <a>
+        evento.preventDefault();
+
+        // Obtener el identificador del rol
+        const id = enlace.dataset.id;
+
+        // Buscar el rol seleccionado
+        const rol = roles.find(
+            registro => String(registro.id) === String(id)
+        );
+
+        if (!rol) {
+            console.error('No se encontró el rol:', id);
+            return;
+        }
+
+        // ==========================================
+        // CONFIRMACIÓN CON SWEETALERT2
+        // ==========================================
+
+        const resultado = await Swal.fire({
+            title: '¿Eliminar rol?',
+            text: `¿Estás seguro de eliminar el rol "${rol.name}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#6c757d',
+            reverseButtons: true,
+            focusCancel: true
+        });
+
+        // Si el usuario cancela, no eliminar
+        if (!resultado.isConfirmed) {
+            return;
+        }
+
+        // ==========================================
+        // EJECUTAR DESTROY()
+        // ==========================================
+
+        // Asignar la ruta de eliminación
+        formularioEliminar.action = enlace.href;
+
+        // Enviar formulario al Controller
+        formularioEliminar.requestSubmit();
+    });
+
+
+    // ==========================================
+    // 5. MOSTRAR DETALLE DEL ROL
+    // ==========================================
+
+    const contenedorMostrar = document.getElementById(
+        'contenedor-modal-mostrar'
+    );
+
+    contenedor.addEventListener('click', async function (evento) {
+
+        const enlace = evento.target.closest('.mostrar-rol');
+
+        if (!enlace) return;
+
+        // Evitar navegación GET a otra página
+        evento.preventDefault();
+
+        if (!contenedorMostrar) {
+            console.error('No existe contenedor-modal-mostrar');
+            return;
+        }
+
+        try {
+            // Ejecutar RolesController@show
+            const respuesta = await fetch(enlace.href, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'text/html'
+                }
+            });
+
+            if (!respuesta.ok) {
+                throw new Error(`Error HTTP: ${respuesta.status}`);
+            }
+
+            // Obtener HTML de show.blade.php
+            contenedorMostrar.innerHTML = await respuesta.text();
+
+            // Buscar modal de detalle
+            const elemento = contenedorMostrar.querySelector(
+                '#MostrarRolModal'
+            );
+
+            if (!elemento) {
+                throw new Error('No se encontró MostrarRolModal');
+            }
+
+            // Inicializar y abrir modal
+            const modal = bootstrap.Modal.getOrCreateInstance(
+                elemento
+            );
+
+            elemento.addEventListener('hidden.bs.modal', function () {
+                modal.dispose();
+                contenedorMostrar.replaceChildren();
+            }, { once: true });
+
+            modal.show();
+
+        } catch (error) {
+            console.error('Error al consultar el rol:', error);
+            alert('No fue posible mostrar el detalle del rol.');
+        }
+
+    });
 
 });
